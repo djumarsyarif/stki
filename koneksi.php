@@ -3,7 +3,7 @@
 
 $host  = "localhost";
 $username  = "root";
-$password  = "";
+$password  = "root";
 $database  = "stki";
 $koneksi  = mysqli_connect($host,  $username,  $password, $database);
 $pilihdatabase  = mysqli_select_db($koneksi, "stki");
