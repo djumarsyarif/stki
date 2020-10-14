@@ -1,1165 +1,1295 @@
-/*
- Navicat Premium Data Transfer
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 15, 2020 at 12:53 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
- Source Server         : stkimain
- Source Server Type    : MySQL
- Source Server Version : 100414
- Source Host           : localhost:3306
- Source Schema         : stki
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
- Target Server Type    : MySQL
- Target Server Version : 100414
- File Encoding         : 65001
 
- Date: 14/10/2020 17:51:29
-*/
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+--
+-- Database: `stki`
+--
 
--- ----------------------------
--- Table structure for berita
--- ----------------------------
-DROP TABLE IF EXISTS `berita`;
-CREATE TABLE `berita`  (
-  `id` int(5) NOT NULL AUTO_INCREMENT,
-  `judul` tinytext CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `isi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `url` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  INDEX `hasil`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+-- --------------------------------------------------------
 
--- ----------------------------
--- Records of berita
--- ----------------------------
-INSERT INTO `berita` VALUES (1, 'Pengeluaran BLT Dana Desa Masih di Bawah 50 persen', 'Jakarta, CNN Indonesia -- Menteri Koordinator Bidang Perekonomian Airlangga Hartarto menyampaikan penyaluran program bantuan langsung tunai (BLT) desa per 20 September 2020 sudah mencapai Rp15,1 triliun.\r\nRealisasi tersebut masih di bawah 50 persen dari total anggaran BLT Desa dalam program pemulihan ekonomi (PEN) yang mencapai Rp31,8 triliun.\r\n\"Ini berasal data dari Kementerian desa untuk 74.146,\" ujarnya dalam webinar yang digelar Kagama, Minggu (11/10).\r\n\r\n\r\n \r\nAirlangga melanjutkan, total dana itu telah tersalurkan kepada 7.970.652 kepala keluarga atau 72,45 persen dari total target 11 juta kepala keluarga di 74.146 desa yang jadi sasaran.\r\n\r\nIa melanjutkan, komposisi kelompok penerima manfaat BLT tersebut antara lain petani dan buruh tani sebesar 88 persen, nelayan dan buruh nelayan 4 persen, buruh pabrik sebesar 2 persen, guru 1 persen dan pedagang serta UMKM sebesar 5 persen.\r\n\r\n\"Kelompoknya adalah petani dan buruh tani sebesar 7 juta penerima, nelayan dan buruh nelayan 323.000, buruh pabrik sebesar 163.338, guru 68.780 dan pedagang serta UMKM 400.597,\" tuturnya.\r\nAirlangga melanjutkan, besaran BLT yang diberikan adalah Rp600 ribu per bulan untuk 3 bulan pertama. Setelah itu, tiga bulan berikutnya kelompok penerima manfaat akan diberikan BLT sebesar Rp300 ribu per bulan.\r\n\r\nPenerima manfaat sendiri berasal dari keluarga miskin atau tidak mampu dan tidak termasuk menerima program keluarga harapan, kartu sembako dan kartu prakerja.\r\n\r\n\"Pendataan penerima dilakukan oleh Kepala Desa atau tim relawan desa serta pendamping dari Pemda diatur oleh Kementerian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (KemendesPDTT),\" tandasnya.\r\n', 'https://www.cnnindonesia.com/ekonomi/20201011221231-78-557150/pengeluaran-blt-dana-desa-masih-di-bawah-50-persen');
-INSERT INTO `berita` VALUES (2, '', '', '');
-INSERT INTO `berita` VALUES (3, '', '', '');
-INSERT INTO `berita` VALUES (4, '', '', '');
-INSERT INTO `berita` VALUES (5, '', '', '');
-INSERT INTO `berita` VALUES (6, '', '', '');
-INSERT INTO `berita` VALUES (7, '', '', '');
-INSERT INTO `berita` VALUES (8, '', '', '');
-INSERT INTO `berita` VALUES (9, '', '', '');
-INSERT INTO `berita` VALUES (10, '', '', '');
-INSERT INTO `berita` VALUES (11, '', '', '');
-INSERT INTO `berita` VALUES (12, '', '', '');
-INSERT INTO `berita` VALUES (13, '', '', '');
-INSERT INTO `berita` VALUES (14, '', '', '');
-INSERT INTO `berita` VALUES (15, '', '', '');
-INSERT INTO `berita` VALUES (16, '', '', '');
-INSERT INTO `berita` VALUES (17, '', '', '');
-INSERT INTO `berita` VALUES (18, '', '', '');
-INSERT INTO `berita` VALUES (19, '', '', '');
-INSERT INTO `berita` VALUES (20, '', '', '');
+--
+-- Table structure for table `berita`
+--
 
--- ----------------------------
--- Table structure for stopword
--- ----------------------------
-DROP TABLE IF EXISTS `stopword`;
-CREATE TABLE `stopword`  (
-  `stopword` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+CREATE TABLE `berita` (
+  `id` int(5) NOT NULL,
+  `judul` tinytext NOT NULL,
+  `isi` text NOT NULL,
+  `url` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of stopword
--- ----------------------------
-INSERT INTO `stopword` VALUES ('ada');
-INSERT INTO `stopword` VALUES ('adalah');
-INSERT INTO `stopword` VALUES ('adanya');
-INSERT INTO `stopword` VALUES ('adapun');
-INSERT INTO `stopword` VALUES ('agak');
-INSERT INTO `stopword` VALUES ('agaknya');
-INSERT INTO `stopword` VALUES ('agar');
-INSERT INTO `stopword` VALUES ('akan');
-INSERT INTO `stopword` VALUES ('akankah');
-INSERT INTO `stopword` VALUES ('akhir');
-INSERT INTO `stopword` VALUES ('akhiri');
-INSERT INTO `stopword` VALUES ('akhirnya');
-INSERT INTO `stopword` VALUES ('aku');
-INSERT INTO `stopword` VALUES ('akulah');
-INSERT INTO `stopword` VALUES ('amat');
-INSERT INTO `stopword` VALUES ('amatlah');
-INSERT INTO `stopword` VALUES ('anda');
-INSERT INTO `stopword` VALUES ('andalah');
-INSERT INTO `stopword` VALUES ('antar');
-INSERT INTO `stopword` VALUES ('antara');
-INSERT INTO `stopword` VALUES ('antaranya');
-INSERT INTO `stopword` VALUES ('apa');
-INSERT INTO `stopword` VALUES ('apaan');
-INSERT INTO `stopword` VALUES ('apabila');
-INSERT INTO `stopword` VALUES ('apakah');
-INSERT INTO `stopword` VALUES ('apalagi');
-INSERT INTO `stopword` VALUES ('apatah');
-INSERT INTO `stopword` VALUES ('artinya');
-INSERT INTO `stopword` VALUES ('asal');
-INSERT INTO `stopword` VALUES ('asalkan');
-INSERT INTO `stopword` VALUES ('atas');
-INSERT INTO `stopword` VALUES ('atau');
-INSERT INTO `stopword` VALUES ('ataukah');
-INSERT INTO `stopword` VALUES ('ataupun');
-INSERT INTO `stopword` VALUES ('awal');
-INSERT INTO `stopword` VALUES ('awalnya');
-INSERT INTO `stopword` VALUES ('bagai');
-INSERT INTO `stopword` VALUES ('bagaikan');
-INSERT INTO `stopword` VALUES ('bagaimana');
-INSERT INTO `stopword` VALUES ('bagaimanakah');
-INSERT INTO `stopword` VALUES ('bagaimanapun');
-INSERT INTO `stopword` VALUES ('bagi');
-INSERT INTO `stopword` VALUES ('bagian');
-INSERT INTO `stopword` VALUES ('bahkan');
-INSERT INTO `stopword` VALUES ('bahwa');
-INSERT INTO `stopword` VALUES ('bahwasanya');
-INSERT INTO `stopword` VALUES ('baik');
-INSERT INTO `stopword` VALUES ('baiknya');
-INSERT INTO `stopword` VALUES ('bakal');
-INSERT INTO `stopword` VALUES ('bakalan');
-INSERT INTO `stopword` VALUES ('balik');
-INSERT INTO `stopword` VALUES ('banyak');
-INSERT INTO `stopword` VALUES ('bapak');
-INSERT INTO `stopword` VALUES ('baru');
-INSERT INTO `stopword` VALUES ('bawah');
-INSERT INTO `stopword` VALUES ('beberapa');
-INSERT INTO `stopword` VALUES ('begini');
-INSERT INTO `stopword` VALUES ('beginian');
-INSERT INTO `stopword` VALUES ('beginikah');
-INSERT INTO `stopword` VALUES ('beginilah');
-INSERT INTO `stopword` VALUES ('begitu');
-INSERT INTO `stopword` VALUES ('begitukah');
-INSERT INTO `stopword` VALUES ('begitulah');
-INSERT INTO `stopword` VALUES ('begitupun');
-INSERT INTO `stopword` VALUES ('bekerja');
-INSERT INTO `stopword` VALUES ('belakang');
-INSERT INTO `stopword` VALUES ('belakangan');
-INSERT INTO `stopword` VALUES ('belum');
-INSERT INTO `stopword` VALUES ('belumlah');
-INSERT INTO `stopword` VALUES ('benar');
-INSERT INTO `stopword` VALUES ('benarkah');
-INSERT INTO `stopword` VALUES ('benarlah');
-INSERT INTO `stopword` VALUES ('berada');
-INSERT INTO `stopword` VALUES ('berakhir');
-INSERT INTO `stopword` VALUES ('berakhirlah');
-INSERT INTO `stopword` VALUES ('berakhirnya');
-INSERT INTO `stopword` VALUES ('berapa');
-INSERT INTO `stopword` VALUES ('berapakah');
-INSERT INTO `stopword` VALUES ('berapalah');
-INSERT INTO `stopword` VALUES ('berapapun');
-INSERT INTO `stopword` VALUES ('berarti');
-INSERT INTO `stopword` VALUES ('berawal');
-INSERT INTO `stopword` VALUES ('berbagai');
-INSERT INTO `stopword` VALUES ('berdatangan');
-INSERT INTO `stopword` VALUES ('beri');
-INSERT INTO `stopword` VALUES ('berikan');
-INSERT INTO `stopword` VALUES ('berikut');
-INSERT INTO `stopword` VALUES ('berikutnya');
-INSERT INTO `stopword` VALUES ('berjumlah');
-INSERT INTO `stopword` VALUES ('berkali');
-INSERT INTO `stopword` VALUES ('berkata');
-INSERT INTO `stopword` VALUES ('berkehendak');
-INSERT INTO `stopword` VALUES ('berkeinginan');
-INSERT INTO `stopword` VALUES ('berkenaan');
-INSERT INTO `stopword` VALUES ('berlainan');
-INSERT INTO `stopword` VALUES ('berlalu');
-INSERT INTO `stopword` VALUES ('berlangsung');
-INSERT INTO `stopword` VALUES ('berlebihan');
-INSERT INTO `stopword` VALUES ('bermacam');
-INSERT INTO `stopword` VALUES ('bermaksud');
-INSERT INTO `stopword` VALUES ('bermula');
-INSERT INTO `stopword` VALUES ('bersama');
-INSERT INTO `stopword` VALUES ('bersiap');
-INSERT INTO `stopword` VALUES ('bertanya');
-INSERT INTO `stopword` VALUES ('berturut');
-INSERT INTO `stopword` VALUES ('bertutur');
-INSERT INTO `stopword` VALUES ('berujar');
-INSERT INTO `stopword` VALUES ('berupa');
-INSERT INTO `stopword` VALUES ('besar');
-INSERT INTO `stopword` VALUES ('betul');
-INSERT INTO `stopword` VALUES ('betulkah');
-INSERT INTO `stopword` VALUES ('biasa');
-INSERT INTO `stopword` VALUES ('biasanya');
-INSERT INTO `stopword` VALUES ('bila');
-INSERT INTO `stopword` VALUES ('bilakah');
-INSERT INTO `stopword` VALUES ('bisa');
-INSERT INTO `stopword` VALUES ('bisakah');
-INSERT INTO `stopword` VALUES ('boleh');
-INSERT INTO `stopword` VALUES ('bolehkah');
-INSERT INTO `stopword` VALUES ('bolehlah');
-INSERT INTO `stopword` VALUES ('buat');
-INSERT INTO `stopword` VALUES ('bukan');
-INSERT INTO `stopword` VALUES ('bukankah');
-INSERT INTO `stopword` VALUES ('bukanlah');
-INSERT INTO `stopword` VALUES ('bukannya');
-INSERT INTO `stopword` VALUES ('bulan');
-INSERT INTO `stopword` VALUES ('bung');
-INSERT INTO `stopword` VALUES ('cara');
-INSERT INTO `stopword` VALUES ('caranya');
-INSERT INTO `stopword` VALUES ('cukup');
-INSERT INTO `stopword` VALUES ('cukupkah');
-INSERT INTO `stopword` VALUES ('cukuplah');
-INSERT INTO `stopword` VALUES ('cuma');
-INSERT INTO `stopword` VALUES ('dahulu');
-INSERT INTO `stopword` VALUES ('dalam');
-INSERT INTO `stopword` VALUES ('dan');
-INSERT INTO `stopword` VALUES ('dapat');
-INSERT INTO `stopword` VALUES ('dari');
-INSERT INTO `stopword` VALUES ('daripada');
-INSERT INTO `stopword` VALUES ('datang');
-INSERT INTO `stopword` VALUES ('dekat');
-INSERT INTO `stopword` VALUES ('demi');
-INSERT INTO `stopword` VALUES ('demikian');
-INSERT INTO `stopword` VALUES ('demikianlah');
-INSERT INTO `stopword` VALUES ('dengan');
-INSERT INTO `stopword` VALUES ('depan');
-INSERT INTO `stopword` VALUES ('di');
-INSERT INTO `stopword` VALUES ('dia');
-INSERT INTO `stopword` VALUES ('diakhiri');
-INSERT INTO `stopword` VALUES ('diakhirinya');
-INSERT INTO `stopword` VALUES ('dialah');
-INSERT INTO `stopword` VALUES ('diantara');
-INSERT INTO `stopword` VALUES ('diantaranya');
-INSERT INTO `stopword` VALUES ('diberi');
-INSERT INTO `stopword` VALUES ('diberikan');
-INSERT INTO `stopword` VALUES ('diberikannya');
-INSERT INTO `stopword` VALUES ('dibuat');
-INSERT INTO `stopword` VALUES ('dibuatnya');
-INSERT INTO `stopword` VALUES ('didapat');
-INSERT INTO `stopword` VALUES ('didatangkan');
-INSERT INTO `stopword` VALUES ('digunakan');
-INSERT INTO `stopword` VALUES ('diibaratkan');
-INSERT INTO `stopword` VALUES ('diibaratkannya');
-INSERT INTO `stopword` VALUES ('diingat');
-INSERT INTO `stopword` VALUES ('diingatkan');
-INSERT INTO `stopword` VALUES ('diinginkan');
-INSERT INTO `stopword` VALUES ('dijawab');
-INSERT INTO `stopword` VALUES ('dijelaskan');
-INSERT INTO `stopword` VALUES ('dijelaskannya');
-INSERT INTO `stopword` VALUES ('dikarenakan');
-INSERT INTO `stopword` VALUES ('dikatakan');
-INSERT INTO `stopword` VALUES ('dikatakannya');
-INSERT INTO `stopword` VALUES ('dikerjakan');
-INSERT INTO `stopword` VALUES ('diketahui');
-INSERT INTO `stopword` VALUES ('diketahuinya');
-INSERT INTO `stopword` VALUES ('dikira');
-INSERT INTO `stopword` VALUES ('dilakukan');
-INSERT INTO `stopword` VALUES ('dilalui');
-INSERT INTO `stopword` VALUES ('dilihat');
-INSERT INTO `stopword` VALUES ('dimaksud');
-INSERT INTO `stopword` VALUES ('dimaksudkan');
-INSERT INTO `stopword` VALUES ('dimaksudkannya');
-INSERT INTO `stopword` VALUES ('dimaksudnya');
-INSERT INTO `stopword` VALUES ('diminta');
-INSERT INTO `stopword` VALUES ('dimintai');
-INSERT INTO `stopword` VALUES ('dimisalkan');
-INSERT INTO `stopword` VALUES ('dimulai');
-INSERT INTO `stopword` VALUES ('dimulailah');
-INSERT INTO `stopword` VALUES ('dimulainya');
-INSERT INTO `stopword` VALUES ('dimungkinkan');
-INSERT INTO `stopword` VALUES ('dini');
-INSERT INTO `stopword` VALUES ('dipastikan');
-INSERT INTO `stopword` VALUES ('diperbuat');
-INSERT INTO `stopword` VALUES ('diperbuatnya');
-INSERT INTO `stopword` VALUES ('dipergunakan');
-INSERT INTO `stopword` VALUES ('diperkirakan');
-INSERT INTO `stopword` VALUES ('diperlihatkan');
-INSERT INTO `stopword` VALUES ('diperlukan');
-INSERT INTO `stopword` VALUES ('diperlukannya');
-INSERT INTO `stopword` VALUES ('dipersoalkan');
-INSERT INTO `stopword` VALUES ('dipertanyakan');
-INSERT INTO `stopword` VALUES ('dipunyai');
-INSERT INTO `stopword` VALUES ('diri');
-INSERT INTO `stopword` VALUES ('dirinya');
-INSERT INTO `stopword` VALUES ('disampaikan');
-INSERT INTO `stopword` VALUES ('disebut');
-INSERT INTO `stopword` VALUES ('disebutkan');
-INSERT INTO `stopword` VALUES ('disebutkannya');
-INSERT INTO `stopword` VALUES ('disini');
-INSERT INTO `stopword` VALUES ('disinilah');
-INSERT INTO `stopword` VALUES ('ditambahkan');
-INSERT INTO `stopword` VALUES ('ditandaskan');
-INSERT INTO `stopword` VALUES ('ditanya');
-INSERT INTO `stopword` VALUES ('ditanyai');
-INSERT INTO `stopword` VALUES ('ditanyakan');
-INSERT INTO `stopword` VALUES ('ditegaskan');
-INSERT INTO `stopword` VALUES ('ditujukan');
-INSERT INTO `stopword` VALUES ('ditunjuk');
-INSERT INTO `stopword` VALUES ('ditunjuki');
-INSERT INTO `stopword` VALUES ('ditunjukkan');
-INSERT INTO `stopword` VALUES ('ditunjukkannya');
-INSERT INTO `stopword` VALUES ('ditunjuknya');
-INSERT INTO `stopword` VALUES ('dituturkan');
-INSERT INTO `stopword` VALUES ('dituturkannya');
-INSERT INTO `stopword` VALUES ('diucapkan');
-INSERT INTO `stopword` VALUES ('diucapkannya');
-INSERT INTO `stopword` VALUES ('diungkapkan');
-INSERT INTO `stopword` VALUES ('dong');
-INSERT INTO `stopword` VALUES ('dua');
-INSERT INTO `stopword` VALUES ('dulu');
-INSERT INTO `stopword` VALUES ('empat');
-INSERT INTO `stopword` VALUES ('enggak');
-INSERT INTO `stopword` VALUES ('enggaknya');
-INSERT INTO `stopword` VALUES ('entah');
-INSERT INTO `stopword` VALUES ('entahlah');
-INSERT INTO `stopword` VALUES ('guna');
-INSERT INTO `stopword` VALUES ('gunakan');
-INSERT INTO `stopword` VALUES ('hal');
-INSERT INTO `stopword` VALUES ('hampir');
-INSERT INTO `stopword` VALUES ('hanya');
-INSERT INTO `stopword` VALUES ('hanyalah');
-INSERT INTO `stopword` VALUES ('hari');
-INSERT INTO `stopword` VALUES ('harus');
-INSERT INTO `stopword` VALUES ('haruslah');
-INSERT INTO `stopword` VALUES ('harusnya');
-INSERT INTO `stopword` VALUES ('hendak');
-INSERT INTO `stopword` VALUES ('hendaklah');
-INSERT INTO `stopword` VALUES ('hendaknya');
-INSERT INTO `stopword` VALUES ('hingga');
-INSERT INTO `stopword` VALUES ('ia');
-INSERT INTO `stopword` VALUES ('ialah');
-INSERT INTO `stopword` VALUES ('ibarat');
-INSERT INTO `stopword` VALUES ('ibaratkan');
-INSERT INTO `stopword` VALUES ('ibaratnya');
-INSERT INTO `stopword` VALUES ('ibu');
-INSERT INTO `stopword` VALUES ('ikut');
-INSERT INTO `stopword` VALUES ('ingat');
-INSERT INTO `stopword` VALUES ('ingin');
-INSERT INTO `stopword` VALUES ('inginkah');
-INSERT INTO `stopword` VALUES ('inginkan');
-INSERT INTO `stopword` VALUES ('ini');
-INSERT INTO `stopword` VALUES ('inikah');
-INSERT INTO `stopword` VALUES ('inilah');
-INSERT INTO `stopword` VALUES ('itu');
-INSERT INTO `stopword` VALUES ('itukah');
-INSERT INTO `stopword` VALUES ('itulah');
-INSERT INTO `stopword` VALUES ('jadi');
-INSERT INTO `stopword` VALUES ('jadilah');
-INSERT INTO `stopword` VALUES ('jadinya');
-INSERT INTO `stopword` VALUES ('jangan');
-INSERT INTO `stopword` VALUES ('jangankan');
-INSERT INTO `stopword` VALUES ('janganlah');
-INSERT INTO `stopword` VALUES ('jauh');
-INSERT INTO `stopword` VALUES ('jawab');
-INSERT INTO `stopword` VALUES ('jawaban');
-INSERT INTO `stopword` VALUES ('jawabnya');
-INSERT INTO `stopword` VALUES ('jelas');
-INSERT INTO `stopword` VALUES ('jelaskan');
-INSERT INTO `stopword` VALUES ('jelaslah');
-INSERT INTO `stopword` VALUES ('jelasnya');
-INSERT INTO `stopword` VALUES ('jika');
-INSERT INTO `stopword` VALUES ('jikalau');
-INSERT INTO `stopword` VALUES ('juga');
-INSERT INTO `stopword` VALUES ('jumlah');
-INSERT INTO `stopword` VALUES ('jumlahnya');
-INSERT INTO `stopword` VALUES ('justru');
-INSERT INTO `stopword` VALUES ('kala');
-INSERT INTO `stopword` VALUES ('kalau');
-INSERT INTO `stopword` VALUES ('kalaulah');
-INSERT INTO `stopword` VALUES ('kalaupun');
-INSERT INTO `stopword` VALUES ('kali');
-INSERT INTO `stopword` VALUES ('kalian');
-INSERT INTO `stopword` VALUES ('kami');
-INSERT INTO `stopword` VALUES ('kamilah');
-INSERT INTO `stopword` VALUES ('kamu');
-INSERT INTO `stopword` VALUES ('kamulah');
-INSERT INTO `stopword` VALUES ('kan');
-INSERT INTO `stopword` VALUES ('kapan');
-INSERT INTO `stopword` VALUES ('kapankah');
-INSERT INTO `stopword` VALUES ('kapanpun');
-INSERT INTO `stopword` VALUES ('karena');
-INSERT INTO `stopword` VALUES ('karenanya');
-INSERT INTO `stopword` VALUES ('kasus');
-INSERT INTO `stopword` VALUES ('kata');
-INSERT INTO `stopword` VALUES ('katakan');
-INSERT INTO `stopword` VALUES ('katakanlah');
-INSERT INTO `stopword` VALUES ('katanya');
-INSERT INTO `stopword` VALUES ('ke');
-INSERT INTO `stopword` VALUES ('keadaan');
-INSERT INTO `stopword` VALUES ('kebetulan');
-INSERT INTO `stopword` VALUES ('kecil');
-INSERT INTO `stopword` VALUES ('kedua');
-INSERT INTO `stopword` VALUES ('keduanya');
-INSERT INTO `stopword` VALUES ('keinginan');
-INSERT INTO `stopword` VALUES ('kelamaan');
-INSERT INTO `stopword` VALUES ('kelihatan');
-INSERT INTO `stopword` VALUES ('kelihatannya');
-INSERT INTO `stopword` VALUES ('kelima');
-INSERT INTO `stopword` VALUES ('keluar');
-INSERT INTO `stopword` VALUES ('kembali');
-INSERT INTO `stopword` VALUES ('kemudian');
-INSERT INTO `stopword` VALUES ('kemungkinan');
-INSERT INTO `stopword` VALUES ('kemungkinannya');
-INSERT INTO `stopword` VALUES ('kenapa');
-INSERT INTO `stopword` VALUES ('kepada');
-INSERT INTO `stopword` VALUES ('kepadanya');
-INSERT INTO `stopword` VALUES ('kesampaian');
-INSERT INTO `stopword` VALUES ('keseluruhan');
-INSERT INTO `stopword` VALUES ('keseluruhannya');
-INSERT INTO `stopword` VALUES ('keterlaluan');
-INSERT INTO `stopword` VALUES ('ketika');
-INSERT INTO `stopword` VALUES ('khususnya');
-INSERT INTO `stopword` VALUES ('kini');
-INSERT INTO `stopword` VALUES ('kinilah');
-INSERT INTO `stopword` VALUES ('kira');
-INSERT INTO `stopword` VALUES ('kiranya');
-INSERT INTO `stopword` VALUES ('kita');
-INSERT INTO `stopword` VALUES ('kitalah');
-INSERT INTO `stopword` VALUES ('kok');
-INSERT INTO `stopword` VALUES ('kurang');
-INSERT INTO `stopword` VALUES ('kurangnya');
-INSERT INTO `stopword` VALUES ('lagi');
-INSERT INTO `stopword` VALUES ('lagian');
-INSERT INTO `stopword` VALUES ('lah');
-INSERT INTO `stopword` VALUES ('lain');
-INSERT INTO `stopword` VALUES ('lainnya');
-INSERT INTO `stopword` VALUES ('lalu');
-INSERT INTO `stopword` VALUES ('lama');
-INSERT INTO `stopword` VALUES ('lamanya');
-INSERT INTO `stopword` VALUES ('lanjut');
-INSERT INTO `stopword` VALUES ('lanjutnya');
-INSERT INTO `stopword` VALUES ('lebih');
-INSERT INTO `stopword` VALUES ('lewat');
-INSERT INTO `stopword` VALUES ('lima');
-INSERT INTO `stopword` VALUES ('luar');
-INSERT INTO `stopword` VALUES ('macam');
-INSERT INTO `stopword` VALUES ('maka');
-INSERT INTO `stopword` VALUES ('makanya');
-INSERT INTO `stopword` VALUES ('makin');
-INSERT INTO `stopword` VALUES ('malah');
-INSERT INTO `stopword` VALUES ('malahan');
-INSERT INTO `stopword` VALUES ('mampu');
-INSERT INTO `stopword` VALUES ('mampukah');
-INSERT INTO `stopword` VALUES ('mana');
-INSERT INTO `stopword` VALUES ('manakala');
-INSERT INTO `stopword` VALUES ('manalagi');
-INSERT INTO `stopword` VALUES ('masa');
-INSERT INTO `stopword` VALUES ('masalah');
-INSERT INTO `stopword` VALUES ('masalahnya');
-INSERT INTO `stopword` VALUES ('masih');
-INSERT INTO `stopword` VALUES ('masihkah');
-INSERT INTO `stopword` VALUES ('masing');
-INSERT INTO `stopword` VALUES ('mata');
-INSERT INTO `stopword` VALUES ('mau');
-INSERT INTO `stopword` VALUES ('maupun');
-INSERT INTO `stopword` VALUES ('melainkan');
-INSERT INTO `stopword` VALUES ('melakukan');
-INSERT INTO `stopword` VALUES ('melalui');
-INSERT INTO `stopword` VALUES ('melihat');
-INSERT INTO `stopword` VALUES ('melihatnya');
-INSERT INTO `stopword` VALUES ('memang');
-INSERT INTO `stopword` VALUES ('memastikan');
-INSERT INTO `stopword` VALUES ('memberi');
-INSERT INTO `stopword` VALUES ('memberikan');
-INSERT INTO `stopword` VALUES ('membuat');
-INSERT INTO `stopword` VALUES ('memerlukan');
-INSERT INTO `stopword` VALUES ('memihak');
-INSERT INTO `stopword` VALUES ('meminta');
-INSERT INTO `stopword` VALUES ('memintakan');
-INSERT INTO `stopword` VALUES ('memisalkan');
-INSERT INTO `stopword` VALUES ('memperbuat');
-INSERT INTO `stopword` VALUES ('mempergunakan');
-INSERT INTO `stopword` VALUES ('memperkirakan');
-INSERT INTO `stopword` VALUES ('memperlihatkan');
-INSERT INTO `stopword` VALUES ('mempersiapkan');
-INSERT INTO `stopword` VALUES ('mempersoalkan');
-INSERT INTO `stopword` VALUES ('mempertanyakan');
-INSERT INTO `stopword` VALUES ('mempunyai');
-INSERT INTO `stopword` VALUES ('memulai');
-INSERT INTO `stopword` VALUES ('memungkinkan');
-INSERT INTO `stopword` VALUES ('menaiki');
-INSERT INTO `stopword` VALUES ('menambahkan');
-INSERT INTO `stopword` VALUES ('menandaskan');
-INSERT INTO `stopword` VALUES ('menanti');
-INSERT INTO `stopword` VALUES ('menantikan');
-INSERT INTO `stopword` VALUES ('menanya');
-INSERT INTO `stopword` VALUES ('menanyai');
-INSERT INTO `stopword` VALUES ('menanyakan');
-INSERT INTO `stopword` VALUES ('mendapat');
-INSERT INTO `stopword` VALUES ('mendapatkan');
-INSERT INTO `stopword` VALUES ('mendatang');
-INSERT INTO `stopword` VALUES ('mendatangi');
-INSERT INTO `stopword` VALUES ('mendatangkan');
-INSERT INTO `stopword` VALUES ('menegaskan');
-INSERT INTO `stopword` VALUES ('mengakhiri');
-INSERT INTO `stopword` VALUES ('mengapa');
-INSERT INTO `stopword` VALUES ('mengatakan');
-INSERT INTO `stopword` VALUES ('mengatakannya');
-INSERT INTO `stopword` VALUES ('mengenai');
-INSERT INTO `stopword` VALUES ('mengerjakan');
-INSERT INTO `stopword` VALUES ('mengetahui');
-INSERT INTO `stopword` VALUES ('menggunakan');
-INSERT INTO `stopword` VALUES ('menghendaki');
-INSERT INTO `stopword` VALUES ('mengibaratkan');
-INSERT INTO `stopword` VALUES ('mengibaratkannya');
-INSERT INTO `stopword` VALUES ('mengingat');
-INSERT INTO `stopword` VALUES ('mengingatkan');
-INSERT INTO `stopword` VALUES ('menginginkan');
-INSERT INTO `stopword` VALUES ('mengira');
-INSERT INTO `stopword` VALUES ('mengucapkan');
-INSERT INTO `stopword` VALUES ('mengucapkannya');
-INSERT INTO `stopword` VALUES ('mengungkapkan');
-INSERT INTO `stopword` VALUES ('menjadi');
-INSERT INTO `stopword` VALUES ('menjawab');
-INSERT INTO `stopword` VALUES ('menjelaskan');
-INSERT INTO `stopword` VALUES ('menuju');
-INSERT INTO `stopword` VALUES ('menunjuk');
-INSERT INTO `stopword` VALUES ('menunjuki');
-INSERT INTO `stopword` VALUES ('menunjukkan');
-INSERT INTO `stopword` VALUES ('menunjuknya');
-INSERT INTO `stopword` VALUES ('menurut');
-INSERT INTO `stopword` VALUES ('menuturkan');
-INSERT INTO `stopword` VALUES ('menyampaikan');
-INSERT INTO `stopword` VALUES ('menyangkut');
-INSERT INTO `stopword` VALUES ('menyatakan');
-INSERT INTO `stopword` VALUES ('menyebutkan');
-INSERT INTO `stopword` VALUES ('menyeluruh');
-INSERT INTO `stopword` VALUES ('menyiapkan');
-INSERT INTO `stopword` VALUES ('merasa');
-INSERT INTO `stopword` VALUES ('mereka');
-INSERT INTO `stopword` VALUES ('merekalah');
-INSERT INTO `stopword` VALUES ('merupakan');
-INSERT INTO `stopword` VALUES ('meski');
-INSERT INTO `stopword` VALUES ('meskipun');
-INSERT INTO `stopword` VALUES ('meyakini');
-INSERT INTO `stopword` VALUES ('meyakinkan');
-INSERT INTO `stopword` VALUES ('minta');
-INSERT INTO `stopword` VALUES ('mirip');
-INSERT INTO `stopword` VALUES ('misal');
-INSERT INTO `stopword` VALUES ('misalkan');
-INSERT INTO `stopword` VALUES ('misalnya');
-INSERT INTO `stopword` VALUES ('mula');
-INSERT INTO `stopword` VALUES ('mulai');
-INSERT INTO `stopword` VALUES ('mulailah');
-INSERT INTO `stopword` VALUES ('mulanya');
-INSERT INTO `stopword` VALUES ('mungkin');
-INSERT INTO `stopword` VALUES ('mungkinkah');
-INSERT INTO `stopword` VALUES ('nah');
-INSERT INTO `stopword` VALUES ('naik');
-INSERT INTO `stopword` VALUES ('namun');
-INSERT INTO `stopword` VALUES ('nanti');
-INSERT INTO `stopword` VALUES ('nantinya');
-INSERT INTO `stopword` VALUES ('nyaris');
-INSERT INTO `stopword` VALUES ('nyatanya');
-INSERT INTO `stopword` VALUES ('olah');
-INSERT INTO `stopword` VALUES ('oleh');
-INSERT INTO `stopword` VALUES ('olehnya');
-INSERT INTO `stopword` VALUES ('pada');
-INSERT INTO `stopword` VALUES ('padahal');
-INSERT INTO `stopword` VALUES ('padanya');
-INSERT INTO `stopword` VALUES ('pak');
-INSERT INTO `stopword` VALUES ('paling');
-INSERT INTO `stopword` VALUES ('panjang');
-INSERT INTO `stopword` VALUES ('pantas');
-INSERT INTO `stopword` VALUES ('para');
-INSERT INTO `stopword` VALUES ('pasti');
-INSERT INTO `stopword` VALUES ('pastilah');
-INSERT INTO `stopword` VALUES ('penting');
-INSERT INTO `stopword` VALUES ('pentingnya');
-INSERT INTO `stopword` VALUES ('per');
-INSERT INTO `stopword` VALUES ('percuma');
-INSERT INTO `stopword` VALUES ('perlu');
-INSERT INTO `stopword` VALUES ('perlukah');
-INSERT INTO `stopword` VALUES ('perlunya');
-INSERT INTO `stopword` VALUES ('pernah');
-INSERT INTO `stopword` VALUES ('persoalan');
-INSERT INTO `stopword` VALUES ('pertama');
-INSERT INTO `stopword` VALUES ('pertanyaan');
-INSERT INTO `stopword` VALUES ('pertanyakan');
-INSERT INTO `stopword` VALUES ('pihak');
-INSERT INTO `stopword` VALUES ('pihaknya');
-INSERT INTO `stopword` VALUES ('pukul');
-INSERT INTO `stopword` VALUES ('pula');
-INSERT INTO `stopword` VALUES ('pun');
-INSERT INTO `stopword` VALUES ('punya');
-INSERT INTO `stopword` VALUES ('rasa');
-INSERT INTO `stopword` VALUES ('rasanya');
-INSERT INTO `stopword` VALUES ('rata');
-INSERT INTO `stopword` VALUES ('rupanya');
-INSERT INTO `stopword` VALUES ('saat');
-INSERT INTO `stopword` VALUES ('saatnya');
-INSERT INTO `stopword` VALUES ('saja');
-INSERT INTO `stopword` VALUES ('sajalah');
-INSERT INTO `stopword` VALUES ('saling');
-INSERT INTO `stopword` VALUES ('sama');
-INSERT INTO `stopword` VALUES ('sambil');
-INSERT INTO `stopword` VALUES ('sampai');
-INSERT INTO `stopword` VALUES ('sampaikan');
-INSERT INTO `stopword` VALUES ('sana');
-INSERT INTO `stopword` VALUES ('sangat');
-INSERT INTO `stopword` VALUES ('sangatlah');
-INSERT INTO `stopword` VALUES ('satu');
-INSERT INTO `stopword` VALUES ('saya');
-INSERT INTO `stopword` VALUES ('sayalah');
-INSERT INTO `stopword` VALUES ('se');
-INSERT INTO `stopword` VALUES ('sebab');
-INSERT INTO `stopword` VALUES ('sebabnya');
-INSERT INTO `stopword` VALUES ('sebagai');
-INSERT INTO `stopword` VALUES ('sebagaimana');
-INSERT INTO `stopword` VALUES ('sebagainya');
-INSERT INTO `stopword` VALUES ('sebagian');
-INSERT INTO `stopword` VALUES ('sebaik');
-INSERT INTO `stopword` VALUES ('sebaiknya');
-INSERT INTO `stopword` VALUES ('sebaliknya');
-INSERT INTO `stopword` VALUES ('sebanyak');
-INSERT INTO `stopword` VALUES ('sebegini');
-INSERT INTO `stopword` VALUES ('sebegitu');
-INSERT INTO `stopword` VALUES ('sebelum');
-INSERT INTO `stopword` VALUES ('sebelumnya');
-INSERT INTO `stopword` VALUES ('sebenarnya');
-INSERT INTO `stopword` VALUES ('seberapa');
-INSERT INTO `stopword` VALUES ('sebesar');
-INSERT INTO `stopword` VALUES ('sebetulnya');
-INSERT INTO `stopword` VALUES ('sebisanya');
-INSERT INTO `stopword` VALUES ('sebuah');
-INSERT INTO `stopword` VALUES ('sebut');
-INSERT INTO `stopword` VALUES ('sebutlah');
-INSERT INTO `stopword` VALUES ('sebutnya');
-INSERT INTO `stopword` VALUES ('secara');
-INSERT INTO `stopword` VALUES ('secukupnya');
-INSERT INTO `stopword` VALUES ('sedang');
-INSERT INTO `stopword` VALUES ('sedangkan');
-INSERT INTO `stopword` VALUES ('sedemikian');
-INSERT INTO `stopword` VALUES ('sedikit');
-INSERT INTO `stopword` VALUES ('sedikitnya');
-INSERT INTO `stopword` VALUES ('seenaknya');
-INSERT INTO `stopword` VALUES ('segala');
-INSERT INTO `stopword` VALUES ('segalanya');
-INSERT INTO `stopword` VALUES ('segera');
-INSERT INTO `stopword` VALUES ('seharusnya');
-INSERT INTO `stopword` VALUES ('sehingga');
-INSERT INTO `stopword` VALUES ('seingat');
-INSERT INTO `stopword` VALUES ('sejak');
-INSERT INTO `stopword` VALUES ('sejauh');
-INSERT INTO `stopword` VALUES ('sejenak');
-INSERT INTO `stopword` VALUES ('sejumlah');
-INSERT INTO `stopword` VALUES ('sekadar');
-INSERT INTO `stopword` VALUES ('sekadarnya');
-INSERT INTO `stopword` VALUES ('sekali');
-INSERT INTO `stopword` VALUES ('sekalian');
-INSERT INTO `stopword` VALUES ('sekaligus');
-INSERT INTO `stopword` VALUES ('sekalipun');
-INSERT INTO `stopword` VALUES ('sekarang');
-INSERT INTO `stopword` VALUES ('sekecil');
-INSERT INTO `stopword` VALUES ('seketika');
-INSERT INTO `stopword` VALUES ('sekiranya');
-INSERT INTO `stopword` VALUES ('sekitar');
-INSERT INTO `stopword` VALUES ('sekitarnya');
-INSERT INTO `stopword` VALUES ('sekurang');
-INSERT INTO `stopword` VALUES ('sekurangnya');
-INSERT INTO `stopword` VALUES ('sela');
-INSERT INTO `stopword` VALUES ('selain');
-INSERT INTO `stopword` VALUES ('selaku');
-INSERT INTO `stopword` VALUES ('selalu');
-INSERT INTO `stopword` VALUES ('selama');
-INSERT INTO `stopword` VALUES ('selamanya');
-INSERT INTO `stopword` VALUES ('selanjutnya');
-INSERT INTO `stopword` VALUES ('seluruh');
-INSERT INTO `stopword` VALUES ('seluruhnya');
-INSERT INTO `stopword` VALUES ('semacam');
-INSERT INTO `stopword` VALUES ('semakin');
-INSERT INTO `stopword` VALUES ('semampu');
-INSERT INTO `stopword` VALUES ('semampunya');
-INSERT INTO `stopword` VALUES ('semasa');
-INSERT INTO `stopword` VALUES ('semasih');
-INSERT INTO `stopword` VALUES ('semata');
-INSERT INTO `stopword` VALUES ('semaunya');
-INSERT INTO `stopword` VALUES ('sementara');
-INSERT INTO `stopword` VALUES ('semisal');
-INSERT INTO `stopword` VALUES ('semisalnya');
-INSERT INTO `stopword` VALUES ('sempat');
-INSERT INTO `stopword` VALUES ('semua');
-INSERT INTO `stopword` VALUES ('semuanya');
-INSERT INTO `stopword` VALUES ('semula');
-INSERT INTO `stopword` VALUES ('sendiri');
-INSERT INTO `stopword` VALUES ('sendirian');
-INSERT INTO `stopword` VALUES ('sendirinya');
-INSERT INTO `stopword` VALUES ('seolah');
-INSERT INTO `stopword` VALUES ('seorang');
-INSERT INTO `stopword` VALUES ('sepanjang');
-INSERT INTO `stopword` VALUES ('sepantasnya');
-INSERT INTO `stopword` VALUES ('sepantasnyalah');
-INSERT INTO `stopword` VALUES ('seperlunya');
-INSERT INTO `stopword` VALUES ('seperti');
-INSERT INTO `stopword` VALUES ('sepertinya');
-INSERT INTO `stopword` VALUES ('sepihak');
-INSERT INTO `stopword` VALUES ('sering');
-INSERT INTO `stopword` VALUES ('seringnya');
-INSERT INTO `stopword` VALUES ('serta');
-INSERT INTO `stopword` VALUES ('serupa');
-INSERT INTO `stopword` VALUES ('sesaat');
-INSERT INTO `stopword` VALUES ('sesama');
-INSERT INTO `stopword` VALUES ('sesampai');
-INSERT INTO `stopword` VALUES ('sesegera');
-INSERT INTO `stopword` VALUES ('sesekali');
-INSERT INTO `stopword` VALUES ('seseorang');
-INSERT INTO `stopword` VALUES ('sesuatu');
-INSERT INTO `stopword` VALUES ('sesuatunya');
-INSERT INTO `stopword` VALUES ('sesudah');
-INSERT INTO `stopword` VALUES ('sesudahnya');
-INSERT INTO `stopword` VALUES ('setelah');
-INSERT INTO `stopword` VALUES ('setempat');
-INSERT INTO `stopword` VALUES ('setengah');
-INSERT INTO `stopword` VALUES ('seterusnya');
-INSERT INTO `stopword` VALUES ('setiap');
-INSERT INTO `stopword` VALUES ('setiba');
-INSERT INTO `stopword` VALUES ('setibanya');
-INSERT INTO `stopword` VALUES ('setidak');
-INSERT INTO `stopword` VALUES ('setidaknya');
-INSERT INTO `stopword` VALUES ('setinggi');
-INSERT INTO `stopword` VALUES ('seusai');
-INSERT INTO `stopword` VALUES ('sewaktu');
-INSERT INTO `stopword` VALUES ('siap');
-INSERT INTO `stopword` VALUES ('siapa');
-INSERT INTO `stopword` VALUES ('siapakah');
-INSERT INTO `stopword` VALUES ('siapapun');
-INSERT INTO `stopword` VALUES ('sini');
-INSERT INTO `stopword` VALUES ('sinilah');
-INSERT INTO `stopword` VALUES ('soal');
-INSERT INTO `stopword` VALUES ('soalnya');
-INSERT INTO `stopword` VALUES ('suatu');
-INSERT INTO `stopword` VALUES ('sudah');
-INSERT INTO `stopword` VALUES ('sudahkah');
-INSERT INTO `stopword` VALUES ('sudahlah');
-INSERT INTO `stopword` VALUES ('supaya');
-INSERT INTO `stopword` VALUES ('tadi');
-INSERT INTO `stopword` VALUES ('tadinya');
-INSERT INTO `stopword` VALUES ('tahu');
-INSERT INTO `stopword` VALUES ('tahun');
-INSERT INTO `stopword` VALUES ('tak');
-INSERT INTO `stopword` VALUES ('tama');
-INSERT INTO `stopword` VALUES ('tambah');
-INSERT INTO `stopword` VALUES ('tambahnya');
-INSERT INTO `stopword` VALUES ('tampak');
-INSERT INTO `stopword` VALUES ('tampaknya');
-INSERT INTO `stopword` VALUES ('tandas');
-INSERT INTO `stopword` VALUES ('tandasnya');
-INSERT INTO `stopword` VALUES ('tanpa');
-INSERT INTO `stopword` VALUES ('tanya');
-INSERT INTO `stopword` VALUES ('tanyakan');
-INSERT INTO `stopword` VALUES ('tanyanya');
-INSERT INTO `stopword` VALUES ('tapi');
-INSERT INTO `stopword` VALUES ('tegas');
-INSERT INTO `stopword` VALUES ('tegasnya');
-INSERT INTO `stopword` VALUES ('telah');
-INSERT INTO `stopword` VALUES ('tempat');
-INSERT INTO `stopword` VALUES ('tengah');
-INSERT INTO `stopword` VALUES ('tentang');
-INSERT INTO `stopword` VALUES ('tentu');
-INSERT INTO `stopword` VALUES ('tentulah');
-INSERT INTO `stopword` VALUES ('tentunya');
-INSERT INTO `stopword` VALUES ('tepat');
-INSERT INTO `stopword` VALUES ('terakhir');
-INSERT INTO `stopword` VALUES ('terasa');
-INSERT INTO `stopword` VALUES ('terbanyak');
-INSERT INTO `stopword` VALUES ('terdahulu');
-INSERT INTO `stopword` VALUES ('terdapat');
-INSERT INTO `stopword` VALUES ('terdiri');
-INSERT INTO `stopword` VALUES ('terhadap');
-INSERT INTO `stopword` VALUES ('terhadapnya');
-INSERT INTO `stopword` VALUES ('teringat');
-INSERT INTO `stopword` VALUES ('terjadi');
-INSERT INTO `stopword` VALUES ('terjadilah');
-INSERT INTO `stopword` VALUES ('terjadinya');
-INSERT INTO `stopword` VALUES ('terkira');
-INSERT INTO `stopword` VALUES ('terlalu');
-INSERT INTO `stopword` VALUES ('terlebih');
-INSERT INTO `stopword` VALUES ('terlihat');
-INSERT INTO `stopword` VALUES ('termasuk');
-INSERT INTO `stopword` VALUES ('ternyata');
-INSERT INTO `stopword` VALUES ('tersampaikan');
-INSERT INTO `stopword` VALUES ('tersebut');
-INSERT INTO `stopword` VALUES ('tersebutlah');
-INSERT INTO `stopword` VALUES ('tertentu');
-INSERT INTO `stopword` VALUES ('tertuju');
-INSERT INTO `stopword` VALUES ('terus');
-INSERT INTO `stopword` VALUES ('terutama');
-INSERT INTO `stopword` VALUES ('tetap');
-INSERT INTO `stopword` VALUES ('tetapi');
-INSERT INTO `stopword` VALUES ('tiap');
-INSERT INTO `stopword` VALUES ('tiba');
-INSERT INTO `stopword` VALUES ('tidak');
-INSERT INTO `stopword` VALUES ('tidakkah');
-INSERT INTO `stopword` VALUES ('tidaklah');
-INSERT INTO `stopword` VALUES ('tidaknya');
-INSERT INTO `stopword` VALUES ('tiga');
-INSERT INTO `stopword` VALUES ('tinggi');
-INSERT INTO `stopword` VALUES ('toh');
-INSERT INTO `stopword` VALUES ('tunjuk');
-INSERT INTO `stopword` VALUES ('turut');
-INSERT INTO `stopword` VALUES ('tutur');
-INSERT INTO `stopword` VALUES ('tuturnya');
-INSERT INTO `stopword` VALUES ('ucap');
-INSERT INTO `stopword` VALUES ('ucapnya');
-INSERT INTO `stopword` VALUES ('ujar');
-INSERT INTO `stopword` VALUES ('ujarnya');
-INSERT INTO `stopword` VALUES ('umum');
-INSERT INTO `stopword` VALUES ('umumnya');
-INSERT INTO `stopword` VALUES ('ungkap');
-INSERT INTO `stopword` VALUES ('ungkapnya');
-INSERT INTO `stopword` VALUES ('untuk');
-INSERT INTO `stopword` VALUES ('usah');
-INSERT INTO `stopword` VALUES ('usai');
-INSERT INTO `stopword` VALUES ('waduh');
-INSERT INTO `stopword` VALUES ('wah');
-INSERT INTO `stopword` VALUES ('wahai');
-INSERT INTO `stopword` VALUES ('waktu');
-INSERT INTO `stopword` VALUES ('waktunya');
-INSERT INTO `stopword` VALUES ('walau');
-INSERT INTO `stopword` VALUES ('walaupun');
-INSERT INTO `stopword` VALUES ('wong');
-INSERT INTO `stopword` VALUES ('yaitu');
-INSERT INTO `stopword` VALUES ('yakin');
-INSERT INTO `stopword` VALUES ('yakni');
-INSERT INTO `stopword` VALUES ('yang');
+--
+-- Dumping data for table `berita`
+--
 
--- ----------------------------
--- Table structure for token
--- ----------------------------
-DROP TABLE IF EXISTS `token`;
-CREATE TABLE `token`  (
-  `id` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `no` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `kode` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `kata` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `freq` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  INDEX `no`(`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+INSERT INTO `berita` (`id`, `judul`, `isi`, `url`) VALUES
+(1, 'Pengeluaran BLT Dana Desa Masih di Bawah 50 persen', 'Jakarta, CNN Indonesia -- Menteri Koordinator Bidang Perekonomian Airlangga Hartarto menyampaikan penyaluran program bantuan langsung tunai (BLT) desa per 20 September 2020 sudah mencapai Rp15,1 triliun.\r\nRealisasi tersebut masih di bawah 50 persen dari total anggaran BLT Desa dalam program pemulihan ekonomi (PEN) yang mencapai Rp31,8 triliun.\r\n\"Ini berasal data dari Kementerian desa untuk 74.146,\" ujarnya dalam webinar yang digelar Kagama, Minggu (11/10).\r\n\r\n\r\n \r\nAirlangga melanjutkan, total dana itu telah tersalurkan kepada 7.970.652 kepala keluarga atau 72,45 persen dari total target 11 juta kepala keluarga di 74.146 desa yang jadi sasaran.\r\n\r\nIa melanjutkan, komposisi kelompok penerima manfaat BLT tersebut antara lain petani dan buruh tani sebesar 88 persen, nelayan dan buruh nelayan 4 persen, buruh pabrik sebesar 2 persen, guru 1 persen dan pedagang serta UMKM sebesar 5 persen.\r\n\r\n\"Kelompoknya adalah petani dan buruh tani sebesar 7 juta penerima, nelayan dan buruh nelayan 323.000, buruh pabrik sebesar 163.338, guru 68.780 dan pedagang serta UMKM 400.597,\" tuturnya.\r\nAirlangga melanjutkan, besaran BLT yang diberikan adalah Rp600 ribu per bulan untuk 3 bulan pertama. Setelah itu, tiga bulan berikutnya kelompok penerima manfaat akan diberikan BLT sebesar Rp300 ribu per bulan.\r\n\r\nPenerima manfaat sendiri berasal dari keluarga miskin atau tidak mampu dan tidak termasuk menerima program keluarga harapan, kartu sembako dan kartu prakerja.\r\n\r\n\"Pendataan penerima dilakukan oleh Kepala Desa atau tim relawan desa serta pendamping dari Pemda diatur oleh Kementerian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (KemendesPDTT),\" tandasnya.\r\n', 'https://www.cnnindonesia.com/ekonomi/20201011221231-78-557150/pengeluaran-blt-dana-desa-masih-di-bawah-50-persen'),
+(2, 'Kemendes PDTT: Program Bantuan BLT Dana Desa Bisa Dilanjutkan Sesuai Kebutuhan Masyarakat', 'MANTRA SUKABUMI – Wakil Menteri Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (Wamendes PDTT), Budi Arie Setiadi mengatakan Bantuan Langsung Tunai (BLT) yang bersumber dari Dana Desa merupakan produk dari masyarakat desa yang melibatkan masyarakat. \r\n\r\nBerikut rangkuman Siaran Pers yang dilansir lewat Laman resmi Kemendes PDTT kemendes.go.id, pada Selasa, 13 Oktober 2020, atas wawancara dengan CNBC Indonesia secara virtual terkait perkembangan BLT Dana Desa.\r\n\r\nWakil Menteri Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (Wamendes PDTT) Budi Arie Setiadi mengatakan Bantuan Langsung Tunai (BLT) yang bersumber dari Dana Desa merupakan Jaring Pengaman Sosial. Sifat BLT Dana Desa merupakan produk dari Musyawarah Desa yang melibatkan masyarakat.\r\nBudi Arie menjelaskan jika BLT Dana Desa itu sebenarnya tidak pernah diberikan target karena penentuan penerima BLT Dana Desa itu berada di tangan masyarakat. \r\n\r\n\"Contohnya, target awal 12 Juta dilakukan Musyawarah 74,953 Desa ternyata hanya ada 7,9 juta Keluarga Penerima Manfaat atau sekitar 65 persen dari target perkiraan awal. Olehnya terjadi penyesuaian dari Rp31 Triliun menjadi Rp28 Triliun,\" kata Wamendes Budi Arie.\r\n\r\nSoal target masyarakat penerima BLT, dijelaskan Budi Arie, disesuaikan kondisi masyarakat desa, pasalnya masyarakat itulah yang identifikasi langsung pihak yang layak menerima BLT. \r\n\r\nPenentuan Keluarga Penerima Manfaat ini ditentukan oleh Musyawarah Desa Khusus dan ditegaskan jika BLT ini mencover masyarakat desa yang belum menerima Jaring Pengaman Sosial lain seperti Program Keluarga Harapan atau Bantuan Sosial.\r\n', 'https://mantrasukabumi.pikiran-rakyat.com/nasional/pr-20830284/kemenses-pdtt-program-bantuan-blt-dana-desa-bisa-dilanjutkan-sesuai-kebutuhan-masyarakat'),
+(3, 'Ini Syarat Dapat Bantuan BLT Dana Desa dari Kemendes PDTT, Lapor Aparat Desa Bila Tidak Cair', 'FIXINDONESIA.COM – Salah satu bantuan pemerintah adalah BLT Dana Desa senilai Rp 13,06 triliun. Dana tersebur siap digelontorkan Kementerian Desa, Pembangunan Daerah Tertinggal, dan Transmigrasi (Kemendes PDTT). Cara dan syarat dapat bantuan ini cukup mudah.\r\n\r\nAbdul Halim Iskandar selaku Mendes PDTT mengatakan, adanya sisa dana dari program padat karya dan sebagian dana desa yang kemudian dicairkan menjadi BLT bagi masyarakat yang terdampak.\r\n\r\nDana sisa anggaran sebesar Rp 30,7 triliun Program Padat Karya Tunai Desa (PKTD) yang mampu menyerap 7,05 juta karyawan.\r\n\r\n\"Kalau Rp 30,793 triliun ini nanti digunakan untuk Program Padat Karya Tunai Desa hingga Desember 2020 dengan asumsi setiap PKTD 8 hari per bulan maka akan ketemu 7.056.751 pekerja yang akan terserap dengan PKTD,\" tutur Halim dalam konferensi pers usai rapat terbatas dengan Presiden Joko Widodo pada Kamis, 24 September 2020.\r\nHalim juga menambahkan, selain sisa anggaran Rp 30,7 triliun untuk PKTD, terdapat juga sisa anggaran Dana Desa sebesar Rp 13,06 triliun untuk melanjutkan Program Bantuan Langsung Tunai (BLT) hingga Desember 2020 mendatang.\r\n\r\nSelain itu, Halim juga menyampaikan laporan penggunaan dana desa yang hingga saat ini anggaran Dana Desa telah disalurkan ke rekening kas desa (RKDes) sekitar Rp 52 triliun.\r\n\"Telah digunakan untuk Desa Tanggap Covid, Padat Karya Tunai, dan pembangunan infrastruktur lainnya mencapai Rp11,9 triliun, dan yang lain untuk BLT Dana Desa digunakan Rp15,4 triliun sehingga dana yang sudah terserap total Rp27,345 triliun,\" ujarnya.\r\n', 'https://fixindonesia.pikiran-rakyat.com/nasional/pr-36828106/ini-syarat-dapat-bantuan-blt-dana-desa-dari-kemendes-pdtt-lapor-aparat-desa-bila-tidak-cair'),
+(4, 'Belum Terima BLT Dana Desa dari Kemendes PDTT? Cek Syaratnya dan Laporkan Jika Tidak Cair', 'RINGTIMES BALI - Kemendes PDTT ( Kemengerian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi) meluncurkan bantuan BLT Dana Desa senilai Rp13,06 triliun.\r\n\r\nUntuk mendapatkannya, cara dan syarat bantuan ini pun cukup mudah.\r\n\r\nBerdasarkan informasi Mendes PDTT Abdul Halim Iskandar, ada sisa dana dari program padat karya dan sebagian dana desa yang kemudian dicairkan menjadi BLT bagi masyarakat yang terkena dampak COvid-19.\r\n\r\nBaca Juga: Rekening Bank Ini Pasti Gagal Dapat BLT Gaji BPJS, Ini Solusi Agar Cair\r\n\r\nMendes juga mengatakan terdapat sisa anggaran dengan jumlah Rp30,7 triliun Program Padat Karya Tunai Desa (PKTD) yang mampu menyerap 7,05 juta karyawan, sebagaimana dimuat dalam artikel sebelumnya di RINGTIMES BANYUWANGI dengan judul Syarat Dapatkan BLT Dana Desa dari Kemendes PDTT, Lapor Jika Tidak Cair\r\n\r\n\"Kalau Rp30,793 triliun ini nanti digunakan untuk Program Padat Karya Tunai Desa hingga Desember 2020 dengan asumsi setiap PKTD 8 hari per bulan maka akan ketemu 7.056.751 pekerja yang akan terserap dengan PKTD,\" kata Halim dalam konferensi pers usai rapat terbatas dengan Presiden Joko Widodo pada Kamis, 24 September 2020.\r\nHalim juga menambahkan, selain sisa anggaran Rp30,7 triliun anggaran untuk PKTD, juga terdapat sisa anggaran Dana Desa sebesar Rp13,06 triliun untuk melanjutkan Program Bantuan Langsung Tunai (BLT) hingga Desember 2020.\r\nLebih lanjut, Halim juga menyampaikan laporan penggunaan dana desa yang hingga saat ini anggaran Dana Desa telah disalurkan ke rekening kas desa (RKDes) sekitar Rp52 triliun.\r\n\r\n\"Telah digunakan untuk Desa Tanggap Covid, Padat Karya Tunai, dan pembangunan infrastruktur lainnya mencapai Rp11,9 triliun, dan yang lain untuk BLT Dana Desa digunakan Rp15,4 triliun sehingga dana yang sudah terserap total Rp27,345 triliun,\" ujarnya.\r\n', 'https://ringtimesbali.pikiran-rakyat.com/nasional/pr-28822713/belum-terima-blt-dana-desa-dari-kemendes-pdtt-cek-syaratnya-dan-laporkan-jika-tidak-cair'),
+(5, 'Syarat Dapat Bantuan BLT Dana Desa dari Kemendes PDTT, Lapor Aparat Desa Jika Tidak Cair', 'BERITA DIY - Bantuan BLT Dana Desa senilai Rp 13,06 triliun siap digelontorkan Kementerian Desa, Pembangunan Daerah Tertinggal, dan Transmigrasi (Kemendes PDTT). Cara dan syarat dapat bantuan ini cukup mudah.\r\n\r\nMendes PDTT Abdul Halim Iskandar mengatakan, ada sisa dana dari program padat karya dan sebagian dana desa yang kemudian dicairkan menjadi BLT bagi masyarakat yang terkena\r\n\r\nMenurut Mendes PDTT, Abdul Halim Iskandar, ada sisa anggaran sebesar Rp 30,7 triliun Program Padat Karya Tunai Desa (PKTD) yang mampu menyerap 7,05 juta karyawan.\r\n\"Kalau Rp30,793 triliun ini nanti digunakan untuk Program Padat Karya Tunai Desa hingga Desember 2020 dengan asumsi setiap PKTD 8 hari per bulan maka akan ketemu 7.056.751 pekerja yang akan terserap dengan PKTD,\" kata Halim dalam konferensi pers usai rapat terbatas dengan Presiden Joko Widodo pada Kamis, 24 September 2020.\r\n\r\nHalim juga menambahkan, selain sisa anggaran Rp30,7 triliun anggaran untuk PKTD, juga terdapat sisa anggaran Dana Desa sebesar Rp13,06 triliun untuk melanjutkan Program Bantuan Langsung Tunai (BLT) hingga Desember 2020.\r\n\r\nLebih lanjut, Halim juga menyampaikan laporan penggunaan dana desa yang hingga saat ini anggaran Dana Desa telah disalurkan ke rekening kas desa (RKDes) sekitar Rp52 triliun.\r\n', 'https://beritadiy.pikiran-rakyat.com/ekonomi/pr-70821822/syarat-dapat-bantuan-blt-dana-desa-dari-kemendes-pdtt-lapor-aparat-desa-jika-tidak-cair'),
+(6, 'Wamendes: BLT Dana Desa Merupakan Jaring Pengaman Sosial', 'REPUBLIKA.CO.ID, JAKARTA -- Wakil Menteri Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (Wamendes PDTT) Budi Arie Setiadi mengatakan Bantuan Langsung Tunai (BLT) yang bersumber dari Dana Desa merupakan Jaring Pengaman Sosial. Sifat BLT Dana Desa merupakan produk dari Musyawarah Desa yang melibatkan masyarakat.\r\n\r\nHal ini dijelaskan Wamendes Budi Arie memenuhi undangan dari CNBC Indonesia terkait soal perkembangan BLT Dana Desa secara virtual, Selasa (13/10). Budi Arie menjelaskan jika BLT Dana Desa itu sebenarnya tidak pernah diberikan target karena penentuan penerima BLT Dana Desa itu berada di tangan masyarakat.\r\n\r\n\"Contohnya, target awal 12 Juta ternyata ternyata dilakukan Musyawarah 74,953 Desa ternyata hanya ada 7,9 juta Keluarga Penerima Manfaat atau sekitar 65 persen dari target perkiraan awal. Olehnya terjadi penyesuaian dari Rp 31 triliun menjadi Rp 28 triliun,\" kata Wamendes.\r\n\r\nSoal target masyarakat penerima BLT, dijelaskan Budi Arie, disesuaikan kondisi masyarakat desa, pasalnya masyarakat itulah yang identifikasi langsung pihak yang layak menerima BLT. Penentuan Keluarga Penerima Manfaat ini ditentukan oleh Musyawarah Desa Khusus dan ditegaskan jika BLT ini mencover masyarakat desa yang belum menerima Jaring Pengaman Sosial lain seperti Program Keluarga Harapan atau Bantuan Sosial.\r\n\r\nBudi Arie menambahkan, penentuan penyaluran BLT Dana Desa setiap desa itu berbeda. Bahkan, dalam catatan Budi Arie, ada beberapa desa yang justru tidak menyalurkan BLT Dana Desa karena tidak ada masyarakatnya yang diidentifikasi sebagai Penerima Manfaat.\r\n\r\n\"Hal ini tidak bisa kita paksa karena prinsip BLT Dana Desa itu Bottom Up. Identifikasi oleh masyarakat desa sendiri dan penentuannya sangat demokratis lewat Musyawarah Desa Khusus,\" tegas Ketua Umum DPP Projo ini.\r\n\r\nWamendes juga menjelaskan, Dana Desa itu hanya tahun 2020 itu sebesar Rp71,9 Triliun yang ditransfer langsung ke Rekening Kas Desa. Dan saat Pandemi Covid-19 sesuai arahan Presiden Joko Widodo agar digunakan BLT untuk menjadi penguat Jaring Pengaman Sosial. Kebijakan pelaksanaan itu sudah dituangkan dalam sejumlah regulasi seperti Peraturan Menteri Desa.\r\n\r\nDitanyakan soal besaran BLT yang disalurkan ke Keluarga Penerima Manfaat, Budi Arie menegaskan jika sesuai Permendes dan Instruksi Mendes itu Rp600 ribu per keluarga selama tiga bulan. Yang berbeda kata Budi Arie, itu jumlah penerima BLT itu sesuai dengan kondisi dan dinamika yang terjadi di desa tersebut.\r\n\r\n\"Kami sudah identifikasi, ada 84 persen KPM itu petani, 4 persen nelayan, satu persen buruh pabrik dan lima persen pedagang. Yang lebih spesifik adalah dari 7,9 juta penerima manfaat itu sebanyak 2,5 juta adalah Perempuan Kepala Keluarga atau PEKKA,\" katanya.\r\n\r\nSoal pengawasan penyaluran BLT Dana Desa, sesuai dengan Permendesa Nomor 6 Tahun 2020. Prosedurnya dimulai pendataan dilakukan oleh Relawan Covid-19 di level RT kemudian dibawa ke Musyawarah Desa Khusus untuk menentukan Keluarga Penerima Manfaat yang kemudian disahkan oleh Kepala Daerah, kemudian disalurkan.\r\n\r\nSoal adanya pengaduan atau laporan masyarakat terkait penyalurannya, Kemendes PDTT terjun langsung untuk mengecek fakta di lapangan dan pendataan ulang. Jika ada kesalahan, maka dilakukan investigasi jika BLT ini diberikan kepada yang tidak berhak.\r\n\r\n\"Kasus ini terjadi di beberapa desa tapi itu sudah dilakukan penyelesaian, termasuk bekerja sama dengan aparat penegak hukum jika terjadi pelanggaran atau moral hazard,\" tegasnya.\r\n', 'https://republika.co.id/berita/qi4z6m423/wamendes-blt-dana-desa-merupakan-jaring-pengaman-sosial'),
+(7, 'BLT Dana Desa Dibagikan di Manggarai, Penerima Tinggal di Kalimantan', 'Jakarta, Beritasatu.com – Bantuan Langsung Tunai (BLT) tahap II yang berasal dari Dana Desa kembali dibagikan di Desa Goloworok, Kecamatan Ruteng, Kabupaten Manggarai, NTT, pekan lalu. Namun anehnya, BLT diberikan bukan hanya kepada warga desa setempat, melainkan ada warga yang tinggal di Kalimantan, tetapi tetap menerima bantuan.\r\n\r\n“Tidak ada perubahaan sama sekali. Nama-nama bermasalah masih tetap muncul,” kata warga Goloworok, Willem Patut di Ruteng, Selasa (13/10/2020).\r\n\r\nIa menjelaskan kejadian pada tahap II ini bukan pertama kali, karena pada tahap sebelumnya juga terjadi hal yang sama. Dia memberi contoh nama-nama penerima yang tinggal di wilayah Kalimantan yaitu Emildus Anggul, Van Mburen, dan Lorensius Janggur. BLT atas nama Emildus diterima oleh istri tidak sah yang berada di kampung. Sementara dua orang lainnya diterima oleh orang tua mereka.\r\n\r\n“Emildus itu kakak kandung dari Pelaksana Tugas (Plt) Kepala Desa Goloworok, Sabinus Danggur. Sudah lebih dari lima tahun tinggal di Kalimantan. Ibu kandungnya sudah menerima PKH (Program Keluarga Harapan, red). Saudaranya juga menerima bantuan rumah dari desa. Ini kan melanggar karena dalam satu keluarga ada penerimaan double,” jelas Willem.\r\n\r\nWarga lainnya, Herman Friman Surijo Bandut menambahkan ada nama penerima juga bukan warga Desa Goloworok. Misalnya, Dortea Jenia sudah menjadi warga Kabupaten Manggarai Barat. Kemudian ada penerima yang belum menikah dan tidak memiliki Kartu Keluarga (KK) sendiri. Misalnya, Igansius Asman, Lodovikus Sudirman dan Yohanes Mujur.\r\n\r\nDia merasa aneh karena yang menentukan penerima BLT Dana Desa adalah Plt Kepala Desa. Tetapi anehnya, nama-nama yang ada tidak diverifikasi. Terlihat memang secara sengaja memberikan nama-nama yang berada di luar Desa Goloworok hanya karena kakak kandung atau saudara dari PLt Kepala Desa.\r\n\r\n“Kami sudah melapor berbagai penyimpangan ini ke Polres Manggarai pada pembagian BLT Dana Desa tahap I, pertengahan Juli lalu. Kami masih menunggu hasil pemeriksaan dari Polres Manggarai. Dari berbagai aturan yang kami baca, model pembagian BLT Dana Desa di Goloworok melanggar aturan,” tutur Firman yang ikut melaporkan ke polisi terkait kasus tersebut.\r\n\r\nDia berharap polisi bisa menindak kasus yang dilaporkan. Hal itu sangat penting demi keadilan di masyarakat. Apalagi, Presiden Jokowi sudah berulang kali menyatakan tidak boleh ada penyimpangan dalam pembagian BLT Dana Desa.\r\n\r\n“Ini kan bantuan untuk warga terdampak Covid 19. Seharusnya warga yang benar-benar terdampak dibagikan. Bukan malah di luar daerah hanya karena keluarga sendiri,” tutup Firman.\r\n', 'https://www.beritasatu.com/rully-satriadi/nasional/687045/blt-dana-desa-dibagikan-di-manggarai-penerima-tinggal-di-kalimantan'),
+(8, 'Cara dan Syarat Dapat Bantuan BLT Dana Desa Rp 13 Triliun, Belum Cair? Lapor Aparat Desa', 'BERITA DIY - Pemerintah melalui Kementerian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (Kemendes PDTT) menyiapkan anggaran Rp 13 triliun untuk memberikan BLT Dana Desa bagi masyarakat yang terdampak covid-19.\r\n\r\nBantuan ini akan diberikan ke masyarakat desa hingga bulan Desember akhir tahun 2020 ini.\r\n\r\nMasyarakat yang ingin dapat bantuan ini harus memenuhi berbagai syarat yang ditetapkan, diantaranya:\r\n\r\n1. Calon penerima merupakan masyarakat yang masuk dalam pendataan RT/RW dan berada di desa.\r\n2. Calon penerima adalah mereka yang kehilangan mata pencarian di tengah pandemi corona.\r\n\r\n3. Calon penerima tidak terdaftar sebagai penerima bantuan sosial (bansos) lain dari pemerintah pusat. Artinya, calon penerima BLT dari Dana Desa tidak menerima Program Keluarga Harapan (PKH), Kartu Sembako, Paket Sembako, Bantuan Pangan Non Tunai (BPNT) hingga Kartu Prakerja.\r\n', 'https://beritadiy.pikiran-rakyat.com/ekonomi/pr-70816430/cara-dan-syarat-dapat-bantuan-blt-dana-desa-rp-13-triliun-belum-cair-lapor-aparat-desa'),
+(9, 'Catat! Ini Syarat Dapat BLT Dana Desa Rp 13 Triliun dari Pemerintah, Lapor Aparat Desa agar Cair', 'BERITA DIY - Ada beberapa syarat dan cara yang harus dilakukan masyarakat untuk dapat Bantuan Langsung Tunai (BLT) dana desa yang dianggarkan pemerintah sebesar Rp 13 triliun.\r\n\r\nPemerintah dalam hal ini, Kementerian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (Kemendes PDTT) telah mengucurkan dana hingga Rp30,7 triliun untuk Program Padat Karya Tunai Desa (PKTD) yang mampu menyerap 7,05 juta karyawan.\r\n\r\n\"Kalau Rp30,793 triliun ini nanti digunakan untuk Program Padat Karya Tunai Desa hingga Desember 2020 dengan asumsi setiap PKTD 8 hari per bulan maka akan ketemu 7.056.751 pekerja yang akan terserap dengan PKTD,\" kata Mendes PDTT, Halim Iskandar dalam konferensi pers usai rapat terbatas dengan Presiden Joko Widodo pada Kamis, 24 September 2020.\r\nHalim juga menambahkan, selain sisa anggaran Rp30,7 triliun anggaran untuk PKTD, juga terdapat sisa anggaran Dana Desa sebesar Rp13,06 triliun untuk melanjutkan Program Bantuan Langsung Tunai (BLT) hingga Desember 2020.\r\n\r\n\"Telah digunakan untuk Desa Tanggap Covid, Padat Karya Tunai, dan pembangunan infrastruktur lainnya mencapai Rp11,9 triliun, dan yang lain untuk BLT Dana Desa digunakan Rp15,4 triliun sehingga dana yang sudah terserap total Rp27,345 triliun,\" ujarnya.\r\n', 'https://beritadiy.pikiran-rakyat.com/ekonomi/pr-70809139/catat-ini-syarat-dapat-blt-dana-desa-rp-13-triliun-dari-pemerintah-lapor-aparat-desa-agar-cair'),
+(10, 'Hore! BLT Dana Desa Rp 13 Triliun Siap Ditransfer, Ini Cara Dapat dan Syarat agar Cair', 'BERITA DIY - Bantuan Langsung Tunai (BLT) dana desa akan ditransfer oleh Pemerintah melalui Kementerian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (Kemendes PDTT). Ada cara dan syarat dapat dana yang total anggarannya mencapai Rp 13 Triliun ini.\r\n\r\nBantuan BLT dana desa ini disiapkan pemerintah menggunakan dana desa yang disiapkan Kemende PDTT.\r\n\r\nSebelumnya Kemendes PDTT sudah mentransfer bantuan dana desa Rp 52 triliun ke kas desa.\r\nMenurut Mendes PDTT, Abdul Halim Iskandar, ada sisa anggaran sebesar Rp 30,7 triliun Program Padat Karya Tunai Desa (PKTD) yang mampu menyerap 7,05 juta karyawan.\r\n\r\n\"Kalau Rp30,793 triliun ini nanti digunakan untuk Program Padat Karya Tunai Desa hingga Desember 2020 dengan asumsi setiap PKTD 8 hari per bulan maka akan ketemu 7.056.751 pekerja yang akan terserap dengan PKTD,\" kata Halim dalam konferensi pers usai rapat terbatas dengan Presiden Joko Widodo pada Kamis, 24 September 2020.\r\nHalim juga menambahkan, selain sisa anggaran Rp30,7 triliun anggaran untuk PKTD, juga terdapat sisa anggaran Dana Desa sebesar Rp13,06 triliun untuk melanjutkan Program Bantuan Langsung Tunai (BLT) hingga Desember 2020.\r\n', 'https://beritadiy.pikiran-rakyat.com/ekonomi/pr-70808501/hore-blt-dana-desa-rp-13-triliun-siap-ditransfer-ini-cara-dapat-dan-syarat-agar-cair'),
+(11, 'Cara Dapat Bantuan BLT Dana Desa Rp 13 Triliun yang Cair Sampai Akhir Tahun Ini, Ini Syaratnya', 'BERITA DIY - Kementerian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (Kemendes PDTT) menggelontorkan dana Rp30,79 triliun sisa PKTD dan Rp13,06 triliun sisa dana desa untuk dijadikan BLT bagi masyarakat desa. Cara dan syarat dapat bantuan ini sudah diatur.\r\n\r\nHal ini dijelaskan Mendes PDTT, Abdul Halim Iskandar tentang sisa anggaran sebesar Rp 30,7 triliun Program Padat Karya Tunai Desa (PKTD) yang mampu menyerap 7,05 juta karyawan.\r\n\r\nHalim juga menambahkan, selain sisa anggaran Rp30,7 triliun anggaran untuk PKTD, juga terdapat sisa anggaran Dana Desa sebesar Rp13,06 triliun untuk melanjutkan Program Bantuan Langsung Tunai (BLT) hingga Desember akhir tahun 2020 ini.\r\n\"Kalau Rp30,793 triliun ini nanti digunakan untuk Program Padat Karya Tunai Desa hingga Desember 2020 dengan asumsi setiap PKTD 8 hari per bulan maka akan ketemu 7.056.751 pekerja yang akan terserap dengan PKTD,\" kata Halim dalam konferensi pers usai rapat terbatas dengan Presiden Joko Widodo pada Kamis, 24 September 2020.\r\n\r\nHalim menambahkan, penyerapan anggaran dana desa  hingga saat ini telah disalurkan ke rekening kas desa (RKDes) sekitar Rp52 triliun.\r\n', 'https://beritadiy.pikiran-rakyat.com/ekonomi/pr-70804237/cara-dapat-bantuan-blt-dana-desa-rp-13-triliun-yang-cair-sampai-akhir-tahun-ini-ini-syaratnya'),
+(12, 'Pemerintah Siapkan Bantuan BLT Dana Desa, Rp 13 Triliun Akan Cair Hingga Akhir Tahun', 'FIXINDONESIA.COM - Pemerintah melalui Kementerian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (Kemendes PDTT) menyalurkan bantuan BLT dana desa untuk masyarakat desa yang terdampak pandemi Covid-19\r\n\r\nMasa pandemi Covid-19 yang belum kunjung berakhir menjadikan Kemendes PDTT mengalihkan anggaran dana desa menjadi BLT dana desa sebagai upaya perlindungan sosial hingga Desember akhir tahun 2020 ini.\r\n\r\nKemendes PDTT akan menggelontorkan anggaran sebesar Rp30,79 triliun sisa dari Program Padat Karya Tunai Desa (PKTD) DAN Rp13,06 triliun sisa dana desa untuk dijadikan BLT dana desa.\r\nSelain sisa anggaran dari program PKTD tersebut, Halim juga menyampaikan bahwa masih terdapat Rp13,06 triliun yang merupakan sisa anggaran Dana Desa untuk melanjutkan program Bantuan Langsung Tunai (BLT) Dana Desa hingga Desember akhir tahun 2020 ini.\r\n\r\n\"Kalau Rp30,793 triliun ini nanti digunakan untuk Program Padat Karya Tunai Desa hingga Desember 2020 dengan asumsi setiap PKTD 8 hari per bulan maka akan ketenu 7.056.751 pekerja yang akan terderap dengan PKTD,\" ujar Halim dalam konferensi pers usai rapat terbatas dengan Presiden Joko Widodo pada Kamis, 24 September 2020.\r\n', 'https://fixindonesia.pikiran-rakyat.com/nasional/pr-36804993/pemerintah-siapkan-bantuan-blt-dana-desa-rp-13-triliun-akan-cair-hingga-akhir-tahun'),
+(13, 'Kemendes Catat Realisasi BLT Dana Desa Capai Rp15,4 T', 'Jakarta, CNN Indonesia -- Kementerian Desa, Pembangunan Daerah Tertinggal, dan Transmigrasi (Kemendes PDTT) mencatat sejauh ini realisasi penyaluran Bantuan Langsung Tunai (BLT) Dana Desa tahap pertama mencapai Rp15,4 triliun. Bantuan sosial (bansos) itu telah dikantongi 8 juta Keluarga Penerima Manfaat (KPM).\r\nMenteri Desa, Pembangunan Daerah Tertinggal, dan Transmigrasi Abdul Halim Iskandar mengatakan mayoritas atau 88 persen penerima BLT Dana Desa adalah petani dan buruh tani. Kemudian, 4 persen penerima adalah nelayan dan buruh nelayan, 2 persen adalah buruh pabrik, 1 persen guru, dan 5 persen pedagang Usaha Mikro Kecil dan Menengah (UMKM).\r\n\r\n\"Ini gambarkan sebaran sasaran BLT dana desa yang basisnya jelas petani dan buruh tani serta nelayan dan buruh nelayan,\" ucap Abdul dalam konferensi pers usai rapat terbatas secara virtual, Kamis (24/9).\r\nSelain itu, sebanyak 2,47 juta penerima adalah perempuan kepala keluarga yang seharusnya mendapatkan bantuan tapi belum terdata. Mereka baru terdeteksi dan diberikan bantuan lewat BLT Dana Desa.\r\n\r\nMenurut Abdul, masih ada sisa dana sebesar Rp52 triliun di rekening desa. Dari total dana itu, Abdul akan menggunakan Rp13,06 triliun untuk melanjutkan program BLT Dana Desa hingga Desember 2020.\r\n\r\nKemudian, sisanya sebesar Rp30,79 triliun akan digunakan untuk program padat karya. Dengan dana tersebut, Abdul optimistis bisa menyerap tenaga kerja sebanyak 7,05 juta.\r\n\r\n\"Ini akan digunakan untuk padat karya desa dengan syarat upah kerja harus di atas 50 persen,\" kata Abdul.\r\nSelain itu, sebanyak 2,47 juta penerima adalah perempuan kepala keluarga yang seharusnya mendapatkan bantuan tapi belum terdata. Mereka baru terdeteksi dan diberikan bantuan lewat BLT Dana Desa.\r\n\r\nMenurut Abdul, masih ada sisa dana sebesar Rp52 triliun di rekening desa. Dari total dana itu, Abdul akan menggunakan Rp13,06 triliun untuk melanjutkan program BLT Dana Desa hingga Desember 2020.\r\n\r\nKemudian, sisanya sebesar Rp30,79 triliun akan digunakan untuk program padat karya. Dengan dana tersebut, Abdul optimistis bisa menyerap tenaga kerja sebanyak 7,05 juta.\r\n\r\n\"Ini akan digunakan untuk padat karya desa dengan syarat upah kerja harus di atas 50 persen,\" kata Abdul.\r\nUntuk itu, ia meminta penyaluran bansos berjalan efektif dan tepat sasaran. Bansos yang dimaksud, seperti program keluarga harapan (PKH) dan BLT Dana Desa.\r\n\r\n\"Pastikan itu diterima oleh masyarakat di desa yang terdampak pandemi dan sangat membutuhkan,\" pungkas Jokowi.\r\n', 'https://www.cnnindonesia.com/ekonomi/20200924180328-532-550617/kemendes-catat-realisasi-blt-dana-desa-capai-rp154-t'),
+(14, 'Bantuan BLT Dana Desa Rp 13 Triliun Dari Pemerintah Siap Cair, Ini Syarat dan Cara Dapatnya', 'BERITA DIY - Pemerintah melalui Kementerian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi (Kemendes PDTT) menyalurkan bantuan BLT dana desa untuk keluarga yang terkena pandemi covid-19. Cara dan syarat dapat bantuan ini cukup mudah.\r\n\r\nMenurut Mendes PDTT, Abdul Halim Iskandar, ada sisa anggaran sebesar Rp 30,7 triliun Program Padat Karya Tunai Desa (PKTD) yang mampu menyerap 7,05 juta karyawan.\r\n\r\n\"Kalau Rp30,793 triliun ini nanti digunakan untuk Program Padat Karya Tunai Desa hingga Desember 2020 dengan asumsi setiap PKTD 8 hari per bulan maka akan ketemu 7.056.751 pekerja yang akan terserap dengan PKTD,\" kata Halim dalam konferensi pers usai rapat terbatas dengan Presiden Joko Widodo pada Kamis, 24 September 2020.\r\nHalim juga menambahkan, selain sisa anggaran Rp30,7 triliun anggaran untuk PKTD, juga terdapat sisa anggaran Dana Desa sebesar Rp13,06 triliun untuk melanjutkan Program Bantuan Langsung Tunai (BLT) hingga Desember 2020.\r\n\r\nLebih lanjut, Halim juga menyampaikan laporan penggunaan dana desa yang hingga saat ini anggaran Dana Desa telah disalurkan ke rekening kas desa (RKDes) sekitar Rp52 triliun.\r\n\r\n\"Telah digunakan untuk Desa Tanggap Covid, Padat Karya Tunai, dan pembangunan infrastruktur lainnya mencapai Rp11,9 triliun, dan yang lain untuk BLT Dana Desa digunakan Rp15,4 triliun sehingga dana yang sudah terserap total Rp27,345 triliun,\" ujarnya.\r\n', 'https://beritadiy.pikiran-rakyat.com/ekonomi/pr-70800861/bantuan-blt-dana-desa-rp-13-triliun-dari-pemerintah-siap-cair-ini-syarat-dan-cara-dapatnya'),
+(15, 'Pemdes Purwadadi Tonjong Salurkan BLT Dana Desa kepada 188 Keluarga', 'BREBES – Pemerintah Desa Purwodadi, Kecamatan Tonjong, Brebes, menyalurkan Bantuan Langsung Tunai (BLT) Dana Desa (DD), Selasa (13/10/20). Ada 188 keluarga penerima manfaat (KPM) yang mendapatkan bantuan tersebut.\r\n\r\nKades Purwodadi Nur Hayatullah mengatakan, bulan ini  adalah penyaluran BLT DD tahap lima. Seperti tahap sebelumnya, ada 188 KPM terdampak COVID-19 yang masing-masing mendapat bantuan sebesar Rp 300 ribu.\r\nDia mengatakan, hampir 99 persen warganya yang terdampak wabah COVID-19 menerima bantuan yang bersumber dari dari Kemensos, PKH, Provinsi, Pemerintah Kabupaten dan lainnya.\r\n\r\n\r\n \r\n“Alhamdulillah 99 persen warga Purwadadi dapat tercover oleh beberapa bantuan untuk penanggulangan dampak COVID-19,” ungkap Hayatullah.\r\n\r\nNurhayatullah mengatakan, pihaknya mengalokasikan Bantuan Langsung Tunai (BLT) DD untuk warga terdampak wabah COVID-19 hingga Desember 2020.\r\n\r\n“Desa Purwodadi ini terkecil dalam penerimaan bantuan DD dari pusat hanya Rp 1,1 Miliar tapi kami tetap alokasi bantuan COVID-19 untuk warganya hingga Desember,” ungkapnya.\r\n\r\nSebagai informasi, Desa Purwodadi saat ini memiliki 1.700 Kepala Keluarga (KK) dengan jumlah waga sekitar 3.700 jiwa. Tahun ini, desa tersebut menerima bantuan DD dari pusat sebesar Rp 1.160.650.000 miliar.\r\n', 'https://panturapost.com/pemdes-purwadadi-tonjong-salurkan-blt-dana-desa-kepada-188-keluarga/'),
+(16, 'BLT Dana Desa Diperpanjang hingga Desember 2020, CATAT! Khusus untuk Penerima dengan Syarat Ini', 'RINGTIMES BALI - Bantuan Langsung Tunai (BLT) Dana Desa sebesar Rp2,7 juta oleh Kemendesa akan diperpanjang hingga Desember 2020.\r\n\r\nBLT Dana Desa sebesar Rp2,7 juta ini penyalurannya akan dibayarkan untuk 6 bulan, dimana pada tiga bulan pertama sebesar Rp600 ribu/KPM/bulan dan selanjutnya Rp300 ribu/KPM/bulan.\r\n\r\nPenyaluran BLT Dana Desa yang sudah tersalurkan hingga saat ini sebesar 15,4 triliun.\r\n\r\nKini bansos atau BLT Dana Desa diperpanjang hingga Desember 2020 jadi masih ada kesempatan bagi Anda jika ingin mendapatkan uang tunai dari pemerintah ini.\r\nBagi Anda yang ingin mengikuti program BLT Dana Desa ini Anda harus memenuhi kriteria yang ditetapkan oleh pemerintah.\r\nBerikut syarat dan cara mendapatkan BLT Dana Desa Rp600 ribu yang dikutip RINGTIMES BALI dari laman Kemendesa.go.id\r\n\r\n1. Calon penerima BLT Dana Desa adalah keluarga miskin baik yang terdata dalam Data Terpadu Kesejahteraan Sosial (DTKS) maupun yang tidak terdata (exclusion error) yang memenuhi kriteria sebagai berikut:\r\n\r\nBaca Juga: Pilih Transaksi Digital Selama Masa PSBB, Simak Cara Top Up ShopeePay\r\n\r\na. Calon penerima tidak terdaftar sebagai penerima bantuan sosial (bansos) lain dari pemerintah pusat. Artinya, calon penerima BLT dari Dana Desa tidak menerima Program Keluarga Harapan (PKH), Kartu Sembako, Paket Sembako, Bantuan Pangan Non Tunai (BPNT) hingga Kartu Prakerja.\r\n', 'https://ringtimesbali.pikiran-rakyat.com/nasional/pr-28773568/blt-dana-desa-diperpanjang-hingga-desember-2020-catat-khusus-untuk-penerima-dengan-syarat-ini'),
+(17, 'Tanjakan Cairkan BLT Dana Desa Tahap III', 'Pemerintah Desa Tanjakan, Kecamatan Rajeg, Kabupaten Tangerang, kembali menyalurkan bantuan langsung tunai (BLT) Dana Desa tahap III (Tiga) sebanyak 282 kepala keluarga (KK), Minggu (11/10/2020).\r\n\r\nKepala Desa Tanjakan, Kecamatan Rajeg, Saumin mengatakan, bantun langsung tunai melalui anggaran dana desa tahap 1 sampai tahap 3 sudah selesai.\r\n“Hari ini kami menyalurkan BLT Dana Desa sebanyak 282 kepala keluarga, dengan nominal 600 ribu rupiah,” terang Saumin Kades Tanjakan.\r\n\r\nSaumin menyampaikan kepada seluruh masyarakat Desa yang menerima bantuan langsung tunai Dana Desa ini, benar-benar di manfaatkan sesuai kebutuhan.\r\n\r\n“Mengingat kita belum tau sampai kapan dampak virus corona ini akan berahir. Bantuan langsung tunai ini diberikan kepada warga miskin atau warga yang terdampak Covid-19,” ujarnya.\r\nIa mengatakan, bahwa pemerintahan desa akan terus berupaya memberikan bantuan kepada masyarakat/warga tidak mampu akibat Pandemi Covid-19 .\r\n\r\n“Bantuan tersebut diatur oleh Desa dengan diarahkan kepada penerima yang tidak pernah menerima bantuan dari Pemerintah baik Pemerintah Pusat, Provinsi, maupun dari Kabupaten. Hal itu dilakukan meminimalisir adanya bantuan ganda dari pemerintah,” ungkapnya.\r\n\r\nSaumin juga berharap, bantuan yang diberikan tersebut dapat dimanfaatkan dengan baik untuk kebutuhan sehari-hari.\r\n', 'https://tangerangonline.id/2020/10/11/tanjakan-cairkan-blt-dana-desa-tahap-iii/'),
+(18, 'Alhamdulillah Bantuan BLT Dana Desa di Perpanjang, Mau Dapat Ini Syaratnya', 'Literasi News - Dalam rangka mencegah  merebaknya Covid-19 serta membantu Ekonomi masyarakat Desa yang lumpuh Pandemi.\r\n \r\nPemerintah telah  mengeluarkan kebijakan prioritas dana sebagaiannya  harus di pergunakan  desa untuk program bantuan langsung tunai (BLT)\r\n \r\nPada tahap pertama yakni 15 Juni yang sudah dilaksanan ke sekitar tersalurkan ke 74. 953 desa yang tersebar di Indonesia.\r\n \r\n \r\nKini karena Covid-19 malah semakin merebak ekonomi masyarakat masih terkatung-katung maka melalui peremendasnya kementerian Desa PDTT kembali memperpanjang program BLT Dana Desa hingga bulan Desember 2020\r\n \r\nBLT Dana Desa sebesar Rp2,7 juta ini penyalurannya akan dibayarkan untuk 6 bulan, dimana pada tiga bulan pertama sebesar Rp600 ribu/KPM/bulan dan selanjutnya Rp300 ribu/KPM/bulan.\r\n \r\n \r\n \r\nJika and ingin dapat bantuan dari pemerintah Berikut syarat dan cara mendapatkan BLT Dana Desa Rp600 ribu yang dikutip Literasinews.com dari laman Kemendesa.go.id\r\n \r\n1. Calon penerima BLT Dana Desa adalah keluarga miskin baik yang terdata dalam Data Terpadu Kesejahteraan Sosial (DTKS) maupun yang tidak terdata (exclusion error) yang memenuhi kriteria sebagai berikut:\r\n \r\n \r\n \r\na. Calon penerima tidak terdaftar sebagai penerima bantuan sosial (bansos) lain dari pemerintah pusat. Artinya, calon penerima BLT dari Dana Desa tidak menerima Program Keluarga Harapan (PKH), Kartu Sembako, Paket Sembako, Bantuan Pangan Non Tunai (BPNT) hingga Kartu Prakerja.\r\n \r\n \r\nb. Mengalami kehilangan mata pencaharian (tidak memiliki cadangan ekonomi yang cukup untuk bertahan hidup selama tiga bulan ke depan);\r\n \r\nc. Mempunyai anggota keluarga yang rentan sakit menahun/kronis;\r\n \r\n2. Calon penerima merupakan masyarakat yang masuk dalam pendataan RT/RW dan berada di desa.\r\n \r\n3, Jika calon penerima tidak mendapatkan bansos dari program lain, tetapi belum terdaftar oleh RT/RW, maka bisa mengomunikasikannya ke aparat desa.\r\n \r\nUntuk diketahui Pemerintah melalui Kementerian Keuangan (Kemenkeu) mengubah skema penyaluran bantuan sosial (bansos) berupa bantuan langsung tunai (BLT) Dana Desa.\r\n \r\nMekanisme tersebut, tertuang dalam Peraturan Menteri Keuangan (PMK) Nomor 50/PMK.07/2020 tentang Perubahan Kedua atas 205/PMK.07/2019 tentang Pengelolaan Dana Desa.\r\n', 'https://literasinews.pikiran-rakyat.com/pemerintahan/pr-92774470/alhamdulillah-bantuan-blt-dana-desa-di-perpanjang-mau-dapat-ini-syaratnya'),
+(19, 'BLT Dana Desa Terserap Hanya Rp11 Triliun, Sisanya untuk Program Daerah', 'JAKARTA - Satgas Pemulihan dan Transformasi Ekonomi Nasional yang juga Wakil Menteri (Wamen) BUMN Budi Gunadi Sadikin mengatakan bahwa alokasi bantuan langsung tunai (BLT) dana desa tidak terserap maksimal. Dimana realisasi anggaran BLT dana desa sekitar 35%.\r\n\r\nSeperti diketahui total anggaran dana desa tahun ini Rp72 triliun, Rp31,8 triliun dialokasikan untuk BLT dana desa.\r\n“Kita mengamati bahwa yang bisa diserap hanya sekitar Rp11 triliun,” katanya saat konferensi pers di Kantor Presiden, Selasa (16/9/2020).\r\n\r\nDia mengatakan, sisa anggaran ini akan dialokasikan untuk program lainnya. Di antaranya program ekonomi di wilayah pedesaan.\r\n“Oleh karena itu nanti dana desa ini akan dialokasikan ke program aktivitas ekonomi desa yang lainnya. Jadi tidak dipakai sebagai BLT tapi dipakai sebagai dana dana desa atau dana dana pengembangan ekonomi pedesaan lainnya. Tapi dana ini sudah ada di pedesaan,” pungkasnya.\r\n', 'https://economy.okezone.com/read/2020/09/16/320/2278899/blt-dana-desa-terserap-hanya-rp11-triliun-sisanya-untuk-program-daerah'),
+(20, 'BLT Dana Desa Lanjut Hingga Desember', 'SINGARAJA, NusaBali\r\n\r\nBantuan Langsung Tunai Dana Desa (BLT-DD) kembali diperpanjang oleh Kementerian Desa Pembangunan Daerah Tertinggal dan Transmigrasi (Kemendesa-PDTT) RI diperpanjang hingga Desember mendatang. BLT-DD gelombang ketiga ini diputuskan dalam Peraturan Menteri Desa (Permendes) Nomor 14 Tahun 2020.\r\n\r\nKepala Dinas Pemberdayaan Masyarakat dan Desa (PMD) Nyoman Agus Jaya Sumpena dihubungi Kamis (8/10) mengatakan sudah menerima Surat Edaran (SE) dari pusat maupun dari Pemerintah Provinsi Bali. SE itu pun sudah diturunkan kembali dan dikirimkan kepada 129 desa yang ada di sembilan kecamatan. “Dua hari yang lalu sudah kami sampaikan instruksi terbaru ke seluruh desa. Nanti realisasinya disesuaikan dengan kondisi keuangan desa. Jika masih ada anggaran wajib direalisasi, tetapi kalau sudah habis ya tidak direalisasi mau cari anggaran di mana karena dari pusat juga tidak ada tambahan anggaran,” jelas dia.\r\nMantan Kepala Dinas Pemadam Kebakaran Buleleng ini juga mengatakan realisasi BLT DD gelombang ketiga itu keputusan sepenuhnya ada di Pemerintah Desa. Seluruh keputusan yang diambil desa terkait realisasi bantuan tunai kepada masyarakatnya itu sesuai dengan hasil musyawarah desa (musdes). Termasuk ketentuan jumlah Keluarga Penerima Manfaat (KPM) yang akan menerima yang disesuaikan dengan anggaran.\r\n\r\n“Misalnya ada yang sudah meninggal datanya diverifikasi dan divalidasi lagi dalam musdes. Kemudian anggaran yang tersisa misalnya hanya cukup merealisasi bantuan satu bulan itu bisa saja yang penting diputuskan melalui musdes dan disetujui peserta rapat,” imbuh Kadis Jaya Sumpena.\r\nDalam Permendes terbaru itu juga kembali ditegaskan untuk melanjutkan BLT-DD tiga bulan ke depan yakni untuk bulan Oktober, November dan Desember.\r\n\r\nPenerima bantuan dan nominal yang diberikan sama dengan BLT-DD gelombang kedua Rp 300 ribu per bulan per KPM. Jumlah desa yang akan merealisasi BLT-DD gelombang ketiga selama pandemi Covid-19 ini pun terancam lebih sedikit dibandingkan dengan gelombang kedua. Sebab pada gelombang kedua untuk realiasasi bulan Juli, Agustus, September ada 11 Desa yang tidak dapat merealisasi BLT-DD karena kehabisan anggaran.\r\n\r\nSebelas desa itu meliputi Desa Joanyar, Bubunan dan Pengastulan di Kecamatan Seririt; Desa Tista dan Kedis di Kecamatan Busungbiu; Desa Munduk, Cempaga, Banjar dan Tigawasa di Kecamatan Banjar; dan Desa Pacung dan Bondalem di Kecamatan Tejakula.\r\n\r\nSedangkan 118 desa yang masih dapat merealisasi BLT-DD gelombang kedua lalu harus menggeser sejumlah anggaran di program pembangunan fisik dan dialihkan untuk penanganan Covid-19. “Pemetaan realisasi yang gelombang ketiga ini kami masih menunggu hasil musdes masing-masing desa, karena yang mengetahui pasti kondisi keuangan desa kan aparat desanya,” ungkap Kadis Jaya Sumpena\r\n', 'https://www.nusabali.com/berita/82244/blt-dana-desa-lanjut-hingga-desember');
 
--- ----------------------------
--- Records of token
--- ----------------------------
-INSERT INTO `token` VALUES ('1', '1', '0', 'bantuan', '1');
-INSERT INTO `token` VALUES ('1', '2', '0', 'langsung', '1');
-INSERT INTO `token` VALUES ('1', '3', '0', 'tunai', '1');
-INSERT INTO `token` VALUES ('1', '4', '0', 'blt', '1');
-INSERT INTO `token` VALUES ('1', '5', '0', 'airlangga', '1');
-INSERT INTO `token` VALUES ('1', '6', '0', 'hartanto', '1');
-INSERT INTO `token` VALUES ('', '', '0', 'roda', '1');
-INSERT INTO `token` VALUES ('', '', '0', 'serasa', '1');
-INSERT INTO `token` VALUES ('', '', '0', 'rodakursi', '1');
-INSERT INTO `token` VALUES ('', '', '0', 'roda', '1');
-INSERT INTO `token` VALUES ('', '', '0', 'murahmeriah', '1');
-INSERT INTO `token` VALUES ('', '', '0', 'surabaya', '1');
-INSERT INTO `token` VALUES ('', '', '0', 'ootd', '1');
-INSERT INTO `token` VALUES ('2', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '22', '0', '', '1');
-INSERT INTO `token` VALUES ('2', '26', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '22', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '23', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '24', '0', '', '1');
-INSERT INTO `token` VALUES ('3', '25', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('4', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('5', '23', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('6', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '22', '0', '', '1');
-INSERT INTO `token` VALUES ('7', '23', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '22', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '23', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '24', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '25', '0', '', '1');
-INSERT INTO `token` VALUES ('8', '26', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '22', '0', '', '1');
-INSERT INTO `token` VALUES ('9', '23', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('10', '24', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('11', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('12', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '22', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '23', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '24', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '25', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '26', '0', '', '1');
-INSERT INTO `token` VALUES ('13', '27', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('14', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('15', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '22', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '23', '0', '', '1');
-INSERT INTO `token` VALUES ('16', '24', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('17', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '8', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '21', '0', '', '1');
-INSERT INTO `token` VALUES ('18', '22', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '4', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '9', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '19', '0', '', '1');
-INSERT INTO `token` VALUES ('19', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '1', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '2', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '3', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '5', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '6', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '7', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '10', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '11', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '12', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '13', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '14', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '15', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '16', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '17', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '18', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '20', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '22', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '23', '0', '', '1');
-INSERT INTO `token` VALUES ('20', '25', '0', '', '1');
+-- --------------------------------------------------------
 
-SET FOREIGN_KEY_CHECKS = 1;
+--
+-- Table structure for table `stopword`
+--
+
+CREATE TABLE `stopword` (
+  `stopword` varchar(25) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `stopword`
+--
+
+INSERT INTO `stopword` (`stopword`) VALUES
+('ada'),
+('adalah'),
+('adanya'),
+('adapun'),
+('agak'),
+('agaknya'),
+('agar'),
+('akan'),
+('akankah'),
+('akhir'),
+('akhiri'),
+('akhirnya'),
+('aku'),
+('akulah'),
+('amat'),
+('amatlah'),
+('anda'),
+('andalah'),
+('antar'),
+('antara'),
+('antaranya'),
+('apa'),
+('apaan'),
+('apabila'),
+('apakah'),
+('apalagi'),
+('apatah'),
+('artinya'),
+('asal'),
+('asalkan'),
+('atas'),
+('atau'),
+('ataukah'),
+('ataupun'),
+('awal'),
+('awalnya'),
+('bagai'),
+('bagaikan'),
+('bagaimana'),
+('bagaimanakah'),
+('bagaimanapun'),
+('bagi'),
+('bagian'),
+('bahkan'),
+('bahwa'),
+('bahwasanya'),
+('baik'),
+('baiknya'),
+('bakal'),
+('bakalan'),
+('balik'),
+('banyak'),
+('bapak'),
+('baru'),
+('bawah'),
+('beberapa'),
+('begini'),
+('beginian'),
+('beginikah'),
+('beginilah'),
+('begitu'),
+('begitukah'),
+('begitulah'),
+('begitupun'),
+('bekerja'),
+('belakang'),
+('belakangan'),
+('belum'),
+('belumlah'),
+('benar'),
+('benarkah'),
+('benarlah'),
+('berada'),
+('berakhir'),
+('berakhirlah'),
+('berakhirnya'),
+('berapa'),
+('berapakah'),
+('berapalah'),
+('berapapun'),
+('berarti'),
+('berawal'),
+('berbagai'),
+('berdatangan'),
+('beri'),
+('berikan'),
+('berikut'),
+('berikutnya'),
+('berjumlah'),
+('berkali'),
+('berkata'),
+('berkehendak'),
+('berkeinginan'),
+('berkenaan'),
+('berlainan'),
+('berlalu'),
+('berlangsung'),
+('berlebihan'),
+('bermacam'),
+('bermaksud'),
+('bermula'),
+('bersama'),
+('bersiap'),
+('bertanya'),
+('berturut'),
+('bertutur'),
+('berujar'),
+('berupa'),
+('besar'),
+('betul'),
+('betulkah'),
+('biasa'),
+('biasanya'),
+('bila'),
+('bilakah'),
+('bisa'),
+('bisakah'),
+('boleh'),
+('bolehkah'),
+('bolehlah'),
+('buat'),
+('bukan'),
+('bukankah'),
+('bukanlah'),
+('bukannya'),
+('bulan'),
+('bung'),
+('cara'),
+('caranya'),
+('cukup'),
+('cukupkah'),
+('cukuplah'),
+('cuma'),
+('dahulu'),
+('dalam'),
+('dan'),
+('dapat'),
+('dari'),
+('daripada'),
+('datang'),
+('dekat'),
+('demi'),
+('demikian'),
+('demikianlah'),
+('dengan'),
+('depan'),
+('di'),
+('dia'),
+('diakhiri'),
+('diakhirinya'),
+('dialah'),
+('diantara'),
+('diantaranya'),
+('diberi'),
+('diberikan'),
+('diberikannya'),
+('dibuat'),
+('dibuatnya'),
+('didapat'),
+('didatangkan'),
+('digunakan'),
+('diibaratkan'),
+('diibaratkannya'),
+('diingat'),
+('diingatkan'),
+('diinginkan'),
+('dijawab'),
+('dijelaskan'),
+('dijelaskannya'),
+('dikarenakan'),
+('dikatakan'),
+('dikatakannya'),
+('dikerjakan'),
+('diketahui'),
+('diketahuinya'),
+('dikira'),
+('dilakukan'),
+('dilalui'),
+('dilihat'),
+('dimaksud'),
+('dimaksudkan'),
+('dimaksudkannya'),
+('dimaksudnya'),
+('diminta'),
+('dimintai'),
+('dimisalkan'),
+('dimulai'),
+('dimulailah'),
+('dimulainya'),
+('dimungkinkan'),
+('dini'),
+('dipastikan'),
+('diperbuat'),
+('diperbuatnya'),
+('dipergunakan'),
+('diperkirakan'),
+('diperlihatkan'),
+('diperlukan'),
+('diperlukannya'),
+('dipersoalkan'),
+('dipertanyakan'),
+('dipunyai'),
+('diri'),
+('dirinya'),
+('disampaikan'),
+('disebut'),
+('disebutkan'),
+('disebutkannya'),
+('disini'),
+('disinilah'),
+('ditambahkan'),
+('ditandaskan'),
+('ditanya'),
+('ditanyai'),
+('ditanyakan'),
+('ditegaskan'),
+('ditujukan'),
+('ditunjuk'),
+('ditunjuki'),
+('ditunjukkan'),
+('ditunjukkannya'),
+('ditunjuknya'),
+('dituturkan'),
+('dituturkannya'),
+('diucapkan'),
+('diucapkannya'),
+('diungkapkan'),
+('dong'),
+('dua'),
+('dulu'),
+('empat'),
+('enggak'),
+('enggaknya'),
+('entah'),
+('entahlah'),
+('guna'),
+('gunakan'),
+('hal'),
+('hampir'),
+('hanya'),
+('hanyalah'),
+('hari'),
+('harus'),
+('haruslah'),
+('harusnya'),
+('hendak'),
+('hendaklah'),
+('hendaknya'),
+('hingga'),
+('ia'),
+('ialah'),
+('ibarat'),
+('ibaratkan'),
+('ibaratnya'),
+('ibu'),
+('ikut'),
+('ingat'),
+('ingin'),
+('inginkah'),
+('inginkan'),
+('ini'),
+('inikah'),
+('inilah'),
+('itu'),
+('itukah'),
+('itulah'),
+('jadi'),
+('jadilah'),
+('jadinya'),
+('jangan'),
+('jangankan'),
+('janganlah'),
+('jauh'),
+('jawab'),
+('jawaban'),
+('jawabnya'),
+('jelas'),
+('jelaskan'),
+('jelaslah'),
+('jelasnya'),
+('jika'),
+('jikalau'),
+('juga'),
+('jumlah'),
+('jumlahnya'),
+('justru'),
+('kala'),
+('kalau'),
+('kalaulah'),
+('kalaupun'),
+('kali'),
+('kalian'),
+('kami'),
+('kamilah'),
+('kamu'),
+('kamulah'),
+('kan'),
+('kapan'),
+('kapankah'),
+('kapanpun'),
+('karena'),
+('karenanya'),
+('kasus'),
+('kata'),
+('katakan'),
+('katakanlah'),
+('katanya'),
+('ke'),
+('keadaan'),
+('kebetulan'),
+('kecil'),
+('kedua'),
+('keduanya'),
+('keinginan'),
+('kelamaan'),
+('kelihatan'),
+('kelihatannya'),
+('kelima'),
+('keluar'),
+('kembali'),
+('kemudian'),
+('kemungkinan'),
+('kemungkinannya'),
+('kenapa'),
+('kepada'),
+('kepadanya'),
+('kesampaian'),
+('keseluruhan'),
+('keseluruhannya'),
+('keterlaluan'),
+('ketika'),
+('khususnya'),
+('kini'),
+('kinilah'),
+('kira'),
+('kiranya'),
+('kita'),
+('kitalah'),
+('kok'),
+('kurang'),
+('kurangnya'),
+('lagi'),
+('lagian'),
+('lah'),
+('lain'),
+('lainnya'),
+('lalu'),
+('lama'),
+('lamanya'),
+('lanjut'),
+('lanjutnya'),
+('lebih'),
+('lewat'),
+('lima'),
+('luar'),
+('macam'),
+('maka'),
+('makanya'),
+('makin'),
+('malah'),
+('malahan'),
+('mampu'),
+('mampukah'),
+('mana'),
+('manakala'),
+('manalagi'),
+('masa'),
+('masalah'),
+('masalahnya'),
+('masih'),
+('masihkah'),
+('masing'),
+('mata'),
+('mau'),
+('maupun'),
+('melainkan'),
+('melakukan'),
+('melalui'),
+('melihat'),
+('melihatnya'),
+('memang'),
+('memastikan'),
+('memberi'),
+('memberikan'),
+('membuat'),
+('memerlukan'),
+('memihak'),
+('meminta'),
+('memintakan'),
+('memisalkan'),
+('memperbuat'),
+('mempergunakan'),
+('memperkirakan'),
+('memperlihatkan'),
+('mempersiapkan'),
+('mempersoalkan'),
+('mempertanyakan'),
+('mempunyai'),
+('memulai'),
+('memungkinkan'),
+('menaiki'),
+('menambahkan'),
+('menandaskan'),
+('menanti'),
+('menantikan'),
+('menanya'),
+('menanyai'),
+('menanyakan'),
+('mendapat'),
+('mendapatkan'),
+('mendatang'),
+('mendatangi'),
+('mendatangkan'),
+('menegaskan'),
+('mengakhiri'),
+('mengapa'),
+('mengatakan'),
+('mengatakannya'),
+('mengenai'),
+('mengerjakan'),
+('mengetahui'),
+('menggunakan'),
+('menghendaki'),
+('mengibaratkan'),
+('mengibaratkannya'),
+('mengingat'),
+('mengingatkan'),
+('menginginkan'),
+('mengira'),
+('mengucapkan'),
+('mengucapkannya'),
+('mengungkapkan'),
+('menjadi'),
+('menjawab'),
+('menjelaskan'),
+('menuju'),
+('menunjuk'),
+('menunjuki'),
+('menunjukkan'),
+('menunjuknya'),
+('menurut'),
+('menuturkan'),
+('menyampaikan'),
+('menyangkut'),
+('menyatakan'),
+('menyebutkan'),
+('menyeluruh'),
+('menyiapkan'),
+('merasa'),
+('mereka'),
+('merekalah'),
+('merupakan'),
+('meski'),
+('meskipun'),
+('meyakini'),
+('meyakinkan'),
+('minta'),
+('mirip'),
+('misal'),
+('misalkan'),
+('misalnya'),
+('mula'),
+('mulai'),
+('mulailah'),
+('mulanya'),
+('mungkin'),
+('mungkinkah'),
+('nah'),
+('naik'),
+('namun'),
+('nanti'),
+('nantinya'),
+('nyaris'),
+('nyatanya'),
+('olah'),
+('oleh'),
+('olehnya'),
+('pada'),
+('padahal'),
+('padanya'),
+('pak'),
+('paling'),
+('panjang'),
+('pantas'),
+('para'),
+('pasti'),
+('pastilah'),
+('penting'),
+('pentingnya'),
+('per'),
+('percuma'),
+('perlu'),
+('perlukah'),
+('perlunya'),
+('pernah'),
+('persoalan'),
+('pertama'),
+('pertanyaan'),
+('pertanyakan'),
+('pihak'),
+('pihaknya'),
+('pukul'),
+('pula'),
+('pun'),
+('punya'),
+('rasa'),
+('rasanya'),
+('rata'),
+('rupanya'),
+('saat'),
+('saatnya'),
+('saja'),
+('sajalah'),
+('saling'),
+('sama'),
+('sambil'),
+('sampai'),
+('sampaikan'),
+('sana'),
+('sangat'),
+('sangatlah'),
+('satu'),
+('saya'),
+('sayalah'),
+('se'),
+('sebab'),
+('sebabnya'),
+('sebagai'),
+('sebagaimana'),
+('sebagainya'),
+('sebagian'),
+('sebaik'),
+('sebaiknya'),
+('sebaliknya'),
+('sebanyak'),
+('sebegini'),
+('sebegitu'),
+('sebelum'),
+('sebelumnya'),
+('sebenarnya'),
+('seberapa'),
+('sebesar'),
+('sebetulnya'),
+('sebisanya'),
+('sebuah'),
+('sebut'),
+('sebutlah'),
+('sebutnya'),
+('secara'),
+('secukupnya'),
+('sedang'),
+('sedangkan'),
+('sedemikian'),
+('sedikit'),
+('sedikitnya'),
+('seenaknya'),
+('segala'),
+('segalanya'),
+('segera'),
+('seharusnya'),
+('sehingga'),
+('seingat'),
+('sejak'),
+('sejauh'),
+('sejenak'),
+('sejumlah'),
+('sekadar'),
+('sekadarnya'),
+('sekali'),
+('sekalian'),
+('sekaligus'),
+('sekalipun'),
+('sekarang'),
+('sekecil'),
+('seketika'),
+('sekiranya'),
+('sekitar'),
+('sekitarnya'),
+('sekurang'),
+('sekurangnya'),
+('sela'),
+('selain'),
+('selaku'),
+('selalu'),
+('selama'),
+('selamanya'),
+('selanjutnya'),
+('seluruh'),
+('seluruhnya'),
+('semacam'),
+('semakin'),
+('semampu'),
+('semampunya'),
+('semasa'),
+('semasih'),
+('semata'),
+('semaunya'),
+('sementara'),
+('semisal'),
+('semisalnya'),
+('sempat'),
+('semua'),
+('semuanya'),
+('semula'),
+('sendiri'),
+('sendirian'),
+('sendirinya'),
+('seolah'),
+('seorang'),
+('sepanjang'),
+('sepantasnya'),
+('sepantasnyalah'),
+('seperlunya'),
+('seperti'),
+('sepertinya'),
+('sepihak'),
+('sering'),
+('seringnya'),
+('serta'),
+('serupa'),
+('sesaat'),
+('sesama'),
+('sesampai'),
+('sesegera'),
+('sesekali'),
+('seseorang'),
+('sesuatu'),
+('sesuatunya'),
+('sesudah'),
+('sesudahnya'),
+('setelah'),
+('setempat'),
+('setengah'),
+('seterusnya'),
+('setiap'),
+('setiba'),
+('setibanya'),
+('setidak'),
+('setidaknya'),
+('setinggi'),
+('seusai'),
+('sewaktu'),
+('siap'),
+('siapa'),
+('siapakah'),
+('siapapun'),
+('sini'),
+('sinilah'),
+('soal'),
+('soalnya'),
+('suatu'),
+('sudah'),
+('sudahkah'),
+('sudahlah'),
+('supaya'),
+('tadi'),
+('tadinya'),
+('tahu'),
+('tahun'),
+('tak'),
+('tama'),
+('tambah'),
+('tambahnya'),
+('tampak'),
+('tampaknya'),
+('tandas'),
+('tandasnya'),
+('tanpa'),
+('tanya'),
+('tanyakan'),
+('tanyanya'),
+('tapi'),
+('tegas'),
+('tegasnya'),
+('telah'),
+('tempat'),
+('tengah'),
+('tentang'),
+('tentu'),
+('tentulah'),
+('tentunya'),
+('tepat'),
+('terakhir'),
+('terasa'),
+('terbanyak'),
+('terdahulu'),
+('terdapat'),
+('terdiri'),
+('terhadap'),
+('terhadapnya'),
+('teringat'),
+('terjadi'),
+('terjadilah'),
+('terjadinya'),
+('terkira'),
+('terlalu'),
+('terlebih'),
+('terlihat'),
+('termasuk'),
+('ternyata'),
+('tersampaikan'),
+('tersebut'),
+('tersebutlah'),
+('tertentu'),
+('tertuju'),
+('terus'),
+('terutama'),
+('tetap'),
+('tetapi'),
+('tiap'),
+('tiba'),
+('tidak'),
+('tidakkah'),
+('tidaklah'),
+('tidaknya'),
+('tiga'),
+('tinggi'),
+('toh'),
+('tunjuk'),
+('turut'),
+('tutur'),
+('tuturnya'),
+('ucap'),
+('ucapnya'),
+('ujar'),
+('ujarnya'),
+('umum'),
+('umumnya'),
+('ungkap'),
+('ungkapnya'),
+('untuk'),
+('usah'),
+('usai'),
+('waduh'),
+('wah'),
+('wahai'),
+('waktu'),
+('waktunya'),
+('walau'),
+('walaupun'),
+('wong'),
+('yaitu'),
+('yakin'),
+('yakni'),
+('yang');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tfidf`
+--
+
+CREATE TABLE `tfidf` (
+  `id` varchar(5) NOT NULL,
+  `no` varchar(5) NOT NULL,
+  `kata` varchar(50) NOT NULL,
+  `freq` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tfidf`
+--
+
+INSERT INTO `tfidf` (`id`, `no`, `kata`, `freq`) VALUES
+('1', '1', 'this', '1'),
+('1', '2', 'is', '1'),
+('1', '3', 'a', '2'),
+('1', '4', 'sample', '1'),
+('2', '1', 'this', '1'),
+('2', '2', 'is', '1'),
+('2', '3', 'another', '2'),
+('2', '4', 'example', '3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `token`
+--
+
+CREATE TABLE `token` (
+  `id` varchar(5) NOT NULL,
+  `no` varchar(5) NOT NULL,
+  `kode` varchar(5) NOT NULL,
+  `kata` varchar(50) NOT NULL,
+  `freq` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `token`
+--
+
+INSERT INTO `token` (`id`, `no`, `kode`, `kata`, `freq`) VALUES
+('1', '22', '0', 'rp', '1'),
+('1', '1', '0', 'jakarta', '1'),
+('1', '23', '0', 'triliun', '1'),
+('1', '2', '0', 'cnn', '1'),
+('1', '160', '0', 'blt', '1'),
+('1', '24', '0', 'realisasi', '1'),
+('1', '3', '0', 'indonesia', '1'),
+('1', '4', '0', 'menteri', '1'),
+('1', '162', '0', 'rp', '1'),
+('1', '5', '0', 'koordinator', '1'),
+('1', '163', '0', 'ribu', '1'),
+('1', '6', '0', 'bidang', '1'),
+('1', '7', '0', 'ekonomi', '1'),
+('1', '29', '0', 'persen', '1'),
+('1', '8', '0', 'airlangga', '1'),
+('1', '166', '0', 'terima', '1'),
+('1', '9', '0', 'hartarto', '1'),
+('1', '31', '0', 'total', '1'),
+('1', '167', '0', 'manfaat', '1'),
+('1', '32', '0', 'anggar', '1'),
+('1', '11', '0', 'salur', '1'),
+('1', '33', '0', 'blt', '1'),
+('1', '169', '0', 'asal', '1'),
+('1', '12', '0', 'program', '1'),
+('1', '34', '0', 'desa', '1'),
+('1', '13', '0', 'bantu', '1'),
+('1', '171', '0', 'keluarga', '1'),
+('1', '14', '0', 'langsung', '1'),
+('1', '172', '0', 'miskin', '1'),
+('1', '36', '0', 'program', '1'),
+('1', '15', '0', 'tunai', '1'),
+('1', '37', '0', 'pulih', '1'),
+('1', '16', '0', 'blt', '1'),
+('1', '38', '0', 'ekonomi', '1'),
+('1', '17', '0', 'desa', '1'),
+('1', '39', '0', 'pen', '1'),
+('1', '19', '0', 'september', '1'),
+('1', '41', '0', 'capai', '1'),
+('1', '21', '0', 'capai', '1'),
+('1', '42', '0', 'rp', '1'),
+('1', '43', '0', 'triliun', '1'),
+('1', '22', '0', 'rp', '1'),
+('1', '179', '0', 'terima', '1'),
+('1', '23', '0', 'triliun', '1'),
+('1', '180', '0', 'program', '1'),
+('1', '24', '0', 'realisasi', '1'),
+('1', '45', '0', 'asal', '1'),
+('1', '181', '0', 'keluarga', '1'),
+('1', '46', '0', 'data', '1'),
+('1', '182', '0', 'harap', '1'),
+('1', '183', '0', 'kartu', '1'),
+('1', '48', '0', 'menteri', '1'),
+('1', '184', '0', 'sembako', '1'),
+('1', '49', '0', 'desa', '1'),
+('1', '29', '0', 'persen', '1'),
+('1', '186', '0', 'kartu', '1'),
+('1', '187', '0', 'prakerja', '1'),
+('1', '31', '0', 'total', '1'),
+('1', '188', '0', 'data', '1'),
+('1', '32', '0', 'anggar', '1'),
+('1', '53', '0', 'webinar', '1'),
+('1', '189', '0', 'terima', '1'),
+('1', '33', '0', 'blt', '1'),
+('1', '34', '0', 'desa', '1'),
+('1', '55', '0', 'gelar', '1'),
+('1', '56', '0', 'kagama', '1'),
+('1', '192', '0', 'kepala', '1'),
+('1', '57', '0', 'minggu', '1'),
+('1', '36', '0', 'program', '1'),
+('1', '193', '0', 'desa', '1'),
+('1', '58', '0', 'airlangga', '1'),
+('1', '37', '0', 'pulih', '1'),
+('1', '59', '0', 'lanjut', '1'),
+('1', '38', '0', 'ekonomi', '1'),
+('1', '195', '0', 'tim', '1'),
+('1', '39', '0', 'pen', '1'),
+('1', '196', '0', 'rawan', '1'),
+('1', '60', '0', 'total', '1'),
+('1', '197', '0', 'desa', '1'),
+('1', '61', '0', 'dana', '1'),
+('1', '41', '0', 'capai', '1'),
+('1', '199', '0', 'damping', '1'),
+('1', '42', '0', 'rp', '1'),
+('1', '43', '0', 'triliun', '1'),
+('1', '64', '0', 'salur', '1'),
+('1', '201', '0', 'pemda', '1'),
+('1', '45', '0', 'asal', '1'),
+('1', '202', '0', 'atur', '1'),
+('1', '66', '0', 'kepala', '1'),
+('1', '46', '0', 'data', '1'),
+('1', '67', '0', 'keluarga', '1'),
+('1', '204', '0', 'menteri', '1'),
+('1', '205', '0', 'desa', '1'),
+('1', '48', '0', 'menteri', '1'),
+('1', '69', '0', 'persen', '1'),
+('1', '49', '0', 'desa', '1'),
+('1', '206', '0', 'bangun', '1'),
+('1', '207', '0', 'daerah', '1'),
+('1', '71', '0', 'total', '1'),
+('1', '208', '0', 'tinggal', '1'),
+('1', '72', '0', 'target', '1'),
+('1', '73', '0', 'juta', '1'),
+('1', '210', '0', 'transmigrasi', '1'),
+('1', '53', '0', 'webinar', '1'),
+('1', '74', '0', 'kepala', '1'),
+('1', '211', '0', 'kemendespdtt', '1'),
+('1', '55', '0', 'gelar', '1'),
+('1', '75', '0', 'keluarga', '1'),
+('1', '56', '0', 'kagama', '1'),
+('1', '77', '0', 'desa', '1'),
+('1', '57', '0', 'minggu', '1'),
+('1', '58', '0', 'airlangga', '1'),
+('1', '59', '0', 'lanjut', '1'),
+('1', '80', '0', 'sasar', '1'),
+('1', '60', '0', 'total', '1'),
+('1', '61', '0', 'dana', '1'),
+('1', '82', '0', 'lanjut', '1'),
+('1', '83', '0', 'komposisi', '1'),
+('1', '84', '0', 'kelompok', '1'),
+('1', '64', '0', 'salur', '1'),
+('1', '85', '0', 'terima', '1'),
+('1', '86', '0', 'manfaat', '1'),
+('1', '66', '0', 'kepala', '1'),
+('1', '87', '0', 'blt', '1'),
+('1', '67', '0', 'keluarga', '1'),
+('1', '88', '0', 'sebut', '1'),
+('1', '68', '0', 'atau', '1'),
+('1', '89', '0', 'antara', '1'),
+('1', '69', '0', 'persen', '1'),
+('1', '90', '0', 'lain', '1'),
+('1', '70', '0', 'dari', '1'),
+('1', '91', '0', 'tani', '1'),
+('1', '71', '0', 'total', '1'),
+('1', '92', '0', 'dan', '1'),
+('1', '72', '0', 'target', '1'),
+('1', '93', '0', 'buruh', '1'),
+('1', '73', '0', 'juta', '1'),
+('1', '94', '0', 'tani', '1'),
+('1', '74', '0', 'kepala', '1'),
+('1', '95', '0', 'besar', '1'),
+('1', '75', '0', 'keluarga', '1'),
+('1', '96', '0', 'persen', '1'),
+('1', '76', '0', 'di', '1'),
+('1', '97', '0', 'nelayan', '1'),
+('1', '77', '0', 'desa', '1'),
+('1', '98', '0', 'dan', '1'),
+('1', '78', '0', 'yang', '1'),
+('1', '99', '0', 'buruh', '1'),
+('1', '79', '0', 'jadi', '1'),
+('1', '100', '0', 'nelayan', '1'),
+('1', '80', '0', 'sasar', '1'),
+('1', '81', '0', 'ia', '1'),
+('1', '101', '0', 'persen', '1'),
+('1', '82', '0', 'lanjut', '1'),
+('1', '102', '0', 'buruh', '1'),
+('1', '83', '0', 'komposisi', '1'),
+('1', '103', '0', 'pabrik', '1'),
+('1', '84', '0', 'kelompok', '1'),
+('1', '104', '0', 'besar', '1'),
+('1', '85', '0', 'terima', '1'),
+('1', '105', '0', 'persen', '1'),
+('1', '106', '0', 'guru', '1'),
+('1', '86', '0', 'manfaat', '1'),
+('1', '87', '0', 'blt', '1'),
+('1', '107', '0', 'persen', '1'),
+('1', '88', '0', 'sebut', '1'),
+('1', '108', '0', 'dan', '1'),
+('1', '89', '0', 'antara', '1'),
+('1', '109', '0', 'pedagang', '1'),
+('1', '90', '0', 'lain', '1'),
+('1', '110', '0', 'serta', '1'),
+('1', '111', '0', 'umkm', '1'),
+('1', '91', '0', 'tani', '1'),
+('1', '112', '0', 'besar', '1'),
+('1', '92', '0', 'dan', '1'),
+('1', '113', '0', 'persen', '1'),
+('1', '93', '0', 'buruh', '1'),
+('1', '94', '0', 'tani', '1'),
+('1', '114', '0', 'kelompoknya', '1'),
+('1', '115', '0', 'adalah', '1'),
+('1', '95', '0', 'besar', '1'),
+('1', '116', '0', 'tani', '1'),
+('1', '96', '0', 'persen', '1'),
+('1', '97', '0', 'nelayan', '1'),
+('1', '117', '0', 'dan', '1'),
+('1', '98', '0', 'dan', '1'),
+('1', '118', '0', 'buruh', '1'),
+('1', '119', '0', 'tani', '1'),
+('1', '99', '0', 'buruh', '1'),
+('1', '120', '0', 'besar', '1'),
+('1', '100', '0', 'nelayan', '1'),
+('1', '101', '0', 'persen', '1'),
+('1', '121', '0', 'juta', '1'),
+('1', '102', '0', 'buruh', '1'),
+('1', '122', '0', 'terima', '1'),
+('1', '103', '0', 'pabrik', '1'),
+('1', '123', '0', 'nelayan', '1'),
+('1', '104', '0', 'besar', '1'),
+('1', '124', '0', 'dan', '1'),
+('1', '105', '0', 'persen', '1'),
+('1', '125', '0', 'buruh', '1'),
+('1', '126', '0', 'nelayan', '1'),
+('1', '106', '0', 'guru', '1'),
+('1', '127', '0', 'buruh', '1'),
+('1', '107', '0', 'persen', '1'),
+('1', '128', '0', 'pabrik', '1'),
+('1', '108', '0', 'dan', '1'),
+('1', '129', '0', 'sebesar', '1'),
+('1', '109', '0', 'pedagang', '1'),
+('1', '110', '0', 'serta', '1'),
+('1', '130', '0', 'guru', '1'),
+('1', '131', '0', 'dan', '1'),
+('1', '111', '0', 'umkm', '1'),
+('1', '132', '0', 'pedagang', '1'),
+('1', '112', '0', 'sebesar', '1'),
+('1', '133', '0', 'serta', '1'),
+('1', '113', '0', 'persen', '1'),
+('1', '134', '0', 'umkm', '1'),
+('1', '114', '0', 'kelompoknya', '1'),
+('1', '135', '0', 'tuturnya', '1'),
+('1', '115', '0', 'adalah', '1'),
+('1', '136', '0', 'airlangga', '1'),
+('1', '116', '0', 'petani', '1'),
+('1', '137', '0', 'melanjutkan', '1'),
+('1', '117', '0', 'dan', '1'),
+('1', '138', '0', 'besaran', '1'),
+('1', '118', '0', 'buruh', '1'),
+('1', '139', '0', 'blt', '1'),
+('1', '119', '0', 'tani', '1'),
+('1', '140', '0', 'yang', '1'),
+('1', '120', '0', 'sebesar', '1'),
+('1', '141', '0', 'diberikan', '1'),
+('1', '121', '0', 'juta', '1'),
+('1', '142', '0', 'adalah', '1'),
+('1', '122', '0', 'penerima', '1'),
+('1', '143', '0', 'rp', '1'),
+('1', '123', '0', 'nelayan', '1'),
+('1', '144', '0', 'ribu', '1'),
+('1', '124', '0', 'dan', '1'),
+('1', '145', '0', 'per', '1'),
+('1', '125', '0', 'buruh', '1'),
+('1', '146', '0', 'bulan', '1'),
+('1', '126', '0', 'nelayan', '1'),
+('1', '147', '0', 'untuk', '1'),
+('1', '127', '0', 'buruh', '1'),
+('1', '148', '0', 'bulan', '1'),
+('1', '128', '0', 'pabrik', '1'),
+('1', '149', '0', 'pertama', '1'),
+('1', '129', '0', 'sebesar', '1'),
+('1', '150', '0', 'setelah', '1'),
+('1', '151', '0', 'itu', '1'),
+('1', '130', '0', 'guru', '1'),
+('1', '131', '0', 'dan', '1'),
+('1', '152', '0', 'tiga', '1'),
+('1', '132', '0', 'pedagang', '1'),
+('1', '153', '0', 'bulan', '1'),
+('1', '133', '0', 'serta', '1'),
+('1', '154', '0', 'berikutnya', '1'),
+('1', '155', '0', 'kelompok', '1'),
+('1', '134', '0', 'umkm', '1'),
+('1', '135', '0', 'tuturnya', '1'),
+('1', '156', '0', 'penerima', '1'),
+('1', '136', '0', 'airlangga', '1'),
+('1', '157', '0', 'manfaat', '1'),
+('1', '137', '0', 'melanjutkan', '1'),
+('1', '158', '0', 'akan', '1'),
+('1', '138', '0', 'besaran', '1'),
+('1', '159', '0', 'diberikan', '1'),
+('1', '139', '0', 'blt', '1'),
+('1', '160', '0', 'blt', '1'),
+('1', '140', '0', 'yang', '1'),
+('1', '161', '0', 'sebesar', '1'),
+('1', '141', '0', 'diberikan', '1'),
+('1', '162', '0', 'rp', '1'),
+('1', '142', '0', 'adalah', '1'),
+('1', '163', '0', 'ribu', '1'),
+('1', '143', '0', 'rp', '1'),
+('1', '164', '0', 'per', '1'),
+('1', '144', '0', 'ribu', '1'),
+('1', '165', '0', 'bulan', '1'),
+('1', '145', '0', 'per', '1'),
+('1', '166', '0', 'penerima', '1'),
+('1', '146', '0', 'bulan', '1'),
+('1', '167', '0', 'manfaat', '1'),
+('1', '147', '0', 'untuk', '1'),
+('1', '168', '0', 'sendiri', '1'),
+('1', '148', '0', 'bulan', '1'),
+('1', '169', '0', 'berasal', '1'),
+('1', '149', '0', 'pertama', '1'),
+('1', '170', '0', 'dari', '1'),
+('1', '150', '0', 'setelah', '1'),
+('1', '171', '0', 'keluarga', '1'),
+('1', '151', '0', 'itu', '1'),
+('1', '172', '0', 'miskin', '1'),
+('1', '152', '0', 'tiga', '1'),
+('1', '173', '0', 'atau', '1'),
+('1', '153', '0', 'bulan', '1'),
+('1', '174', '0', 'tidak', '1'),
+('1', '154', '0', 'berikutnya', '1'),
+('1', '175', '0', 'mampu', '1'),
+('1', '155', '0', 'kelompok', '1'),
+('1', '176', '0', 'dan', '1'),
+('1', '156', '0', 'penerima', '1'),
+('1', '177', '0', 'tidak', '1'),
+('1', '178', '0', 'termasuk', '1'),
+('1', '157', '0', 'manfaat', '1'),
+('1', '179', '0', 'menerima', '1'),
+('1', '158', '0', 'akan', '1'),
+('1', '180', '0', 'program', '1'),
+('1', '159', '0', 'diberikan', '1'),
+('1', '181', '0', 'keluarga', '1'),
+('1', '160', '0', 'blt', '1'),
+('1', '182', '0', 'harapan', '1'),
+('1', '161', '0', 'sebesar', '1'),
+('1', '183', '0', 'kartu', '1'),
+('1', '162', '0', 'rp', '1'),
+('1', '184', '0', 'sembako', '1'),
+('1', '163', '0', 'ribu', '1'),
+('1', '185', '0', 'dan', '1'),
+('1', '164', '0', 'per', '1'),
+('1', '186', '0', 'kartu', '1'),
+('1', '165', '0', 'bulan', '1'),
+('1', '187', '0', 'prakerja', '1'),
+('1', '166', '0', 'penerima', '1'),
+('1', '188', '0', 'pendataan', '1'),
+('1', '167', '0', 'manfaat', '1'),
+('1', '189', '0', 'penerima', '1'),
+('1', '190', '0', 'dilakukan', '1'),
+('1', '168', '0', 'sendiri', '1'),
+('1', '191', '0', 'oleh', '1'),
+('1', '169', '0', 'berasal', '1'),
+('1', '192', '0', 'kepala', '1'),
+('1', '170', '0', 'dari', '1'),
+('1', '193', '0', 'desa', '1'),
+('1', '171', '0', 'keluarga', '1'),
+('1', '194', '0', 'atau', '1'),
+('1', '172', '0', 'miskin', '1'),
+('1', '195', '0', 'tim', '1'),
+('1', '173', '0', 'atau', '1'),
+('1', '196', '0', 'relawan', '1'),
+('1', '174', '0', 'tidak', '1'),
+('1', '197', '0', 'desa', '1'),
+('1', '175', '0', 'mampu', '1'),
+('1', '198', '0', 'serta', '1'),
+('1', '176', '0', 'dan', '1'),
+('1', '199', '0', 'pendamping', '1'),
+('1', '177', '0', 'tidak', '1'),
+('1', '200', '0', 'dari', '1'),
+('1', '178', '0', 'termasuk', '1'),
+('1', '201', '0', 'pemda', '1'),
+('1', '179', '0', 'menerima', '1'),
+('1', '202', '0', 'diatur', '1'),
+('1', '180', '0', 'program', '1'),
+('1', '203', '0', 'oleh', '1'),
+('1', '181', '0', 'keluarga', '1'),
+('1', '204', '0', 'kementerian', '1'),
+('1', '182', '0', 'harapan', '1'),
+('1', '205', '0', 'desa', '1'),
+('1', '183', '0', 'kartu', '1'),
+('1', '184', '0', 'sembako', '1'),
+('1', '206', '0', 'pembangunan', '1'),
+('1', '185', '0', 'dan', '1'),
+('1', '207', '0', 'daerah', '1'),
+('1', '186', '0', 'kartu', '1'),
+('1', '208', '0', 'tertinggal', '1'),
+('1', '187', '0', 'prakerja', '1'),
+('1', '209', '0', 'dan', '1'),
+('1', '188', '0', 'pendataan', '1'),
+('1', '210', '0', 'transmigrasi', '1'),
+('1', '189', '0', 'penerima', '1'),
+('1', '211', '0', 'kemendespdtt', '1'),
+('1', '190', '0', 'dilakukan', '1'),
+('1', '212', '0', 'tandasnya', '1'),
+('1', '191', '0', 'oleh', '1'),
+('1', '192', '0', 'kepala', '1'),
+('1', '193', '0', 'desa', '1'),
+('1', '194', '0', 'atau', '1'),
+('1', '195', '0', 'tim', '1'),
+('1', '196', '0', 'relawan', '1'),
+('1', '197', '0', 'desa', '1'),
+('1', '198', '0', 'serta', '1'),
+('1', '199', '0', 'pendamping', '1'),
+('1', '200', '0', 'dari', '1'),
+('1', '201', '0', 'pemda', '1'),
+('1', '202', '0', 'diatur', '1'),
+('1', '203', '0', 'oleh', '1'),
+('1', '204', '0', 'kementerian', '1'),
+('1', '205', '0', 'desa', '1'),
+('1', '206', '0', 'pembangunan', '1'),
+('1', '207', '0', 'daerah', '1'),
+('1', '208', '0', 'tertinggal', '1'),
+('1', '209', '0', 'dan', '1'),
+('1', '210', '0', 'transmigrasi', '1'),
+('1', '211', '0', 'kemendespdtt', '1'),
+('1', '212', '0', 'tandasnya', '1');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+  ADD KEY `hasil` (`id`) USING BTREE;
+
+--
+-- Indexes for table `token`
+--
+ALTER TABLE `token`
+  ADD KEY `no` (`id`) USING BTREE;
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
