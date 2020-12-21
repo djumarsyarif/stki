@@ -39,6 +39,9 @@ $no++;
 }
 }
 
+$queryTF = "SELECT *FROM tfidf";
+$resultTF = mysqli_query($koneksi,$queryTF);
+
 $query2 = "SELECT * FROM token";
 $result2 = mysqli_query($koneksi,$query2);
 $no=1;
@@ -51,9 +54,9 @@ $kata3 = $row['kata'];
 $frek3 = $row['freq'];
 echo "<td><font color=blue></font>" .  $id3 . "<br></td>"; 
 echo "<td><font color=blue></font>" .  $no3 . "<br></td>"; 
-echo "<td><font color=blue></font>" .  $kode3 . "<br></td>"; 
-echo "<td><font color=blue></font>" .  $kata3 . "<br></td>"; 
-echo "<td><font color=blue></font>" .  $frek3 . "<br></td>"; 
+echo "<td><font color=blue></font>" .  $kode3 . "<br></td>";
+echo "<td><font color=blue></font>" .  $kata3 . "<br></td>";
+echo "<td><font color=blue></font>" .  $frek3 . "<br></td>";
 echo "</tr>";
 $no++;
 }
